@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B4A616A9-4DA9-42C5-8467-BE16FA00DFB2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MvcSiteMapBuilder</RootNamespace>
+    <AssemblyName>MvcSiteMapBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache\CacheDetails.cs" />
+    <Compile Include="Cache\ICacheDependency.cs" />
+    <Compile Include="Cache\ICacheDetails.cs" />
+    <Compile Include="Cache\ISiteMapCacheKeyToBuilderSetMapper.cs" />
+    <Compile Include="Cache\NullCacheDependency.cs" />
+    <Compile Include="Cache\RuntimeCacheDependency.cs" />
+    <Compile Include="Cache\SiteMapCacheKeyToBuilderSetMapper.cs" />
+    <Compile Include="Collections\Specialized\SourceMetadataDictionary.cs" />
+    <Compile Include="DataSource\ISiteMapDataSource.cs" />
+    <Compile Include="DataSource\ISiteMapXmlDataSource.cs" />
+    <Compile Include="DI\ISiteMapContainer.cs" />
+    <Compile Include="DI\ISiteMapServiceProvider.cs" />
+    <Compile Include="DI\ISiteMapServiceRegister.cs" />
+    <Compile Include="DataSource\FileXmlSource.cs" />
+    <Compile Include="Extensions\RouteDataExtensions.cs" />
+    <Compile Include="Extensions\SiteMapNodeExtensions.cs" />
+    <Compile Include="Extensions\XElementExtensions.cs" />
+    <Compile Include="Helpers\UrlHelpers.cs" />
+    <Compile Include="ISiteMapBuilder.cs" />
+    <Compile Include="Cache\ISiteMapCache.cs" />
+    <Compile Include="Cache\ISiteMapCacheKeyGenerator.cs" />
+    <Compile Include="ISiteMapBuilderSet.cs" />
+    <Compile Include="ISiteMapBuilderSetStrategy.cs" />
+    <Compile Include="ISiteMapLoader.cs" />
+    <Compile Include="DI\SiteMapContainer.cs" />
+    <Compile Include="Providers\DynamicNodeBuilder.cs" />
+    <Compile Include="Providers\IDynamicNodeProvider.cs" />
+    <Compile Include="Providers\ISiteMapNodeProvider.cs" />
+    <Compile Include="Providers\IXmlSiteMapNodeProvider.cs" />
+    <Compile Include="Providers\NodeKeyGenerator.cs" />
+    <Compile Include="Providers\NodeProviderType.cs" />
+    <Compile Include="Providers\XmlSiteMapNodeProvider.cs" />
+    <Compile Include="Security\AuthorizeAttributeAclModule.cs" />
+    <Compile Include="Security\IAclModule.cs" />
+    <Compile Include="SiteMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiteMapBuilder.cs" />
+    <Compile Include="Cache\SiteMapCacheKeyGenerator.cs" />
+    <Compile Include="SiteMapBuilderSet.cs" />
+    <Compile Include="SiteMapBuilderSetStrategy.cs" />
+    <Compile Include="SiteMapConfiguration.cs" />
+    <Compile Include="SiteMapDefaultRegistrations.cs" />
+    <Compile Include="SiteMapLoader.cs" />
+    <Compile Include="SiteMapNode.cs" />
+    <Compile Include="SiteMaps.cs" />
+    <Compile Include="Web\Html\HtmlHelperExtensions.cs" />
+    <Compile Include="Web\Html\MvcSiteMapHtmlHelper.cs" />
+    <Compile Include="Web\Html\SiteMapPathHelper.cs" />
+    <Compile Include="Web\Mvc\ControllerDescriptorFactory.cs" />
+    <Compile Include="Web\Mvc\ControllerTypeResolver.cs" />
+    <Compile Include="Web\Mvc\MvcSiteMapProviderViewEngine.cs" />
+    <Compile Include="Web\Mvc\MvcSiteMapProviderViewEngineVirtualFile.cs" />
+    <Compile Include="Web\Mvc\MvcSiteMapProviderVirtualPathProvider.cs" />
+    <Compile Include="Web\ViewDataContainer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="siteMapSample.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="siteMapSample.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

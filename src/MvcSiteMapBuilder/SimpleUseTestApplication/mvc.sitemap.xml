@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap>
+
+  <!-- Template should ignore the root node, MvcSiteMapProvider does not handle a dynamicNodeProvider at the root -->
+  <mvcSiteMapNode title="Home" controller="Home" action="Index" area="">
+    <!-- BASIC SETUP -->
+    <mvcSiteMapNode title="About" controller="Home" action="About" area="" />
+    <mvcSiteMapNode title="Contact" controller="Home" action="Contact" area="" />
+    
+    <mvcSiteMapNode title="Home" dynamicNodeProvider="SimpleUseTestApplication.SiteMap.CustomNodeProvider, SimpleUseTestApplication" />
+
+    <mvcSiteMapNode title="LogOff" controller="Account" action="LogOff" area="" />
+
+  </mvcSiteMapNode>
+
+</mvcSiteMap>

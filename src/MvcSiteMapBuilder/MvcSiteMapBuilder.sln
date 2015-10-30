@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcSiteMapBuilder", "MvcSiteMapBuilder\MvcSiteMapBuilder.csproj", "{B4A616A9-4DA9-42C5-8467-BE16FA00DFB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{EFF02B0E-AC4E-415E-BC04-F3825ED040EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{58DEFE24-2E5D-4B7C-9CC9-DD53AC9FEDC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleUseTestApplication", "SimpleUseTestApplication\SimpleUseTestApplication.csproj", "{C71A461B-6FBF-46A1-899B-F5A93D1AD01D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcSiteMapBuilder.Tests", "MvcSiteMapBuilder.Tests\MvcSiteMapBuilder.Tests.csproj", "{61702188-DB6F-44B1-859D-7E4B39ACF5FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4A616A9-4DA9-42C5-8467-BE16FA00DFB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4A616A9-4DA9-42C5-8467-BE16FA00DFB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4A616A9-4DA9-42C5-8467-BE16FA00DFB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4A616A9-4DA9-42C5-8467-BE16FA00DFB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C71A461B-6FBF-46A1-899B-F5A93D1AD01D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C71A461B-6FBF-46A1-899B-F5A93D1AD01D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C71A461B-6FBF-46A1-899B-F5A93D1AD01D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C71A461B-6FBF-46A1-899B-F5A93D1AD01D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61702188-DB6F-44B1-859D-7E4B39ACF5FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61702188-DB6F-44B1-859D-7E4B39ACF5FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61702188-DB6F-44B1-859D-7E4B39ACF5FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61702188-DB6F-44B1-859D-7E4B39ACF5FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C71A461B-6FBF-46A1-899B-F5A93D1AD01D} = {58DEFE24-2E5D-4B7C-9CC9-DD53AC9FEDC8}
+		{61702188-DB6F-44B1-859D-7E4B39ACF5FD} = {EFF02B0E-AC4E-415E-BC04-F3825ED040EF}
+	EndGlobalSection
+EndGlobal
