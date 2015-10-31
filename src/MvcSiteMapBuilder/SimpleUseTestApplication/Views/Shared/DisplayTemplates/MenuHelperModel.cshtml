@@ -1,0 +1,23 @@
+﻿@model MvcSiteMapBuilder.Web.Html.Models.MenuHelperModel
+@using System.Web.Mvc.Html
+@using MvcSiteMapBuilder.Web.Html.Models
+
+<ul id="menu" class="nav navbar-nav">
+    @foreach (var node in Model.Nodes)
+    {
+        <li>
+            <a href="@node.Url" title="@node.Title">@node.Title</a>
+            @if (node.Children.Any())
+            {
+                <ul>
+                    @foreach (var child in node.Children)
+                    {
+                        <li>
+                            <a href="@node.Url" title="@node.Title">@node.Title</a>
+                        </li>
+                    }
+                </ul>
+            }
+        </li>
+    }
+</ul>

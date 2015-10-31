@@ -43,13 +43,21 @@ namespace MvcSiteMapBuilder
 
         public bool Equals(SiteMapNode node)
         {
-            if (Equals(node))
+            if (ReferenceEquals(this, node))
                 return true;
 
             if (node == null)
                 return false;
 
             return Key.Equals(node.Key);
+        }
+
+        public override bool Equals(object obj)
+        {
+            SiteMapNode node = obj as SiteMapNode;
+            if (node == null)
+                return false;
+            return Equals(node);
         }
 
         /// <summary>

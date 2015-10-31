@@ -47,17 +47,22 @@ namespace MvcSiteMapBuilder
             if (string.IsNullOrEmpty(siteMapCacheKey))
                 siteMapCacheKey = siteMapCacheKeyGenerator.GenerateKey();
 
+            // retrieve builderset
             var builderSet = GetBuilderSet(siteMapCacheKey);
 
+            // check cache for sitemap if not available generate using builder
+            // cache using cachedetails
             var siteMap = siteMapCache.GetOrAdd(
                 siteMapCacheKey,
                 () => siteMapBuilder.BuildSiteMap(builderSet, siteMapCacheKey),
                 builderSet.CacheDetails
             );
 
-            VisitSiteMap(siteMap);
+            // create new restricted sitemap based on user's permissions
+            var restrictedSiteMap = VisitSiteMap(siteMap);
 
-            return siteMap;
+            // return new filtered sitemap
+            return restrictedSiteMap;
         }
 
         public void ReleaseSiteMap()
@@ -80,7 +85,7 @@ namespace MvcSiteMapBuilder
             return builderSet;
         }
 
-        protected virtual void VisitSiteMap(SiteMap siteMap)
+        protected virtual SiteMap VisitSiteMap(SiteMap siteMap)
         {
             var siteMapNodes = new List<SiteMapNode>();
 
@@ -92,7 +97,11 @@ namespace MvcSiteMapBuilder
                     siteMapNodes.Add(node);
             }
 
-            siteMap.Nodes = siteMapNodes;
+            return new SiteMap
+            {
+                CacheKey = siteMap.CacheKey,
+                Nodes = siteMapNodes
+            };
         }
 
         protected virtual bool IsNodeAccessible(SiteMapNode rootNode)

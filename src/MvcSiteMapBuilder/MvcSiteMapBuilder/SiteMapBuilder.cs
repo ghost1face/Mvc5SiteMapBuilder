@@ -51,7 +51,7 @@ namespace MvcSiteMapBuilder
 
         private void ResolveUrl(SiteMapNode rootNode)
         {
-            rootNode.ResolveUrl();
+            rootNode.Url = rootNode.ResolveUrl();
 
             if(rootNode.HasChildNodes)
             {
