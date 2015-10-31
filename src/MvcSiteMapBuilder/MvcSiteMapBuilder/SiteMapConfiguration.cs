@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using MvcSiteMapBuilder.DI;
-using MvcSiteMapBuilder.DataSource;
+using System.Linq;
 using System.Web.Hosting;
 using MvcSiteMapBuilder.Cache;
+using MvcSiteMapBuilder.DataSource;
+using MvcSiteMapBuilder.DI;
 
 namespace MvcSiteMapBuilder
 {
@@ -48,9 +48,16 @@ namespace MvcSiteMapBuilder
 
         #endregion
 
+        #region Constructor
+
+        /// <summary>
+        /// Creates an instance of SiteMapConfiguration with the specified default cache duration
+        /// </summary>
+        /// <param name="cacheDuration"></param>
         private SiteMapConfiguration(TimeSpan cacheDuration)
         {
             var absoluteFileName = HostingEnvironment.MapPath("~/mvc.sitemap.xml");
+
             builderSets = new Collection<ISiteMapBuilderSet>
             {
                 new SiteMapBuilderSet(
@@ -61,6 +68,13 @@ namespace MvcSiteMapBuilder
             };
         }
 
+        #endregion
+
+        /// <summary>
+        /// Registers a builderset with the current configuration (This is for supporting multiple sitemap files)
+        /// </summary>
+        /// <param name="builderSet"></param>
+        /// <returns></returns>
         public SiteMapConfiguration RegisterBuilderSet(ISiteMapBuilderSet builderSet)
         {
             builderSets.Add(builderSet);
@@ -68,6 +82,11 @@ namespace MvcSiteMapBuilder
             return this;
         }
 
+        /// <summary>
+        /// Register an override of default implementation
+        /// </summary>
+        /// <param name="registration"></param>
+        /// <returns></returns>
         public SiteMapConfiguration Register(Action<ISiteMapContainer> registration)
         {
             if (containerIsBuilt)
@@ -81,6 +100,9 @@ namespace MvcSiteMapBuilder
             return this;
         }
 
+        /// <summary>
+        /// Build IoC container with the specified configuration
+        /// </summary>
         public void Build()
         {
             if (containerIsBuilt)
