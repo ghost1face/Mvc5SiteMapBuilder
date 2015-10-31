@@ -5,7 +5,7 @@ using MvcSiteMapBuilder.Security;
 
 namespace MvcSiteMapBuilder
 {
-    public class SiteMapDefaultRegistrations
+    public static class SiteMapDefaultRegistrations
     {
         public static void RegisterServices(SiteMapConfiguration configuration)
         {

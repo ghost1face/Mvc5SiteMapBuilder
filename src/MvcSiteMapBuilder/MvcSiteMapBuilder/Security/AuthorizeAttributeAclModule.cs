@@ -215,7 +215,7 @@ namespace MvcSiteMapBuilder.Security
             var found = this.TryFindActionDescriptor(actionName, controllerContext, controllerDescriptor, out actionDescriptor);
             if (!found)
             {
-                actionDescriptor = controllerDescriptor.GetCanonicalActions().Where(a => a.ActionName == actionName).FirstOrDefault();
+                actionDescriptor = controllerDescriptor.GetCanonicalActions().FirstOrDefault(a => a.ActionName == actionName);
             }
             return actionDescriptor;
         }

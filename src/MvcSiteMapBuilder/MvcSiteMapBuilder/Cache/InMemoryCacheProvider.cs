@@ -9,7 +9,7 @@ namespace MvcSiteMapBuilder.Cache
         where T : class
     {
         private ObjectCache cache = MemoryCache.Default;
-        private ReaderWriterLockSlim synclock = new ReaderWriterLockSlim(LockRecursionPolicy.NoRecursion);
+        private readonly ReaderWriterLockSlim synclock = new ReaderWriterLockSlim(LockRecursionPolicy.NoRecursion);
 
         public void Add(string key, T item, ICacheDetails cacheDetails)
         {

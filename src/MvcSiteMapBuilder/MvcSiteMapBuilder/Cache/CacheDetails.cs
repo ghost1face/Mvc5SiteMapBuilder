@@ -5,7 +5,7 @@ namespace MvcSiteMapBuilder.Cache
     public class CacheDetails : ICacheDetails
     {
         private TimeSpan absoluteCacheExpiration;
-        private TimeSpan slidingCacheExpiration;
+        private readonly TimeSpan slidingCacheExpiration;
         private ICacheDependency cacheDependency;
 
         public CacheDetails(TimeSpan absoluteCacheExpiration, TimeSpan slidingCacheExpiration, ICacheDependency cacheDependency)

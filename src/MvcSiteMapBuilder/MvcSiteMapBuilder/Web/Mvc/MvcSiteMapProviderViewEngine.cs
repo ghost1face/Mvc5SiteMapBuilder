@@ -24,7 +24,7 @@ namespace MvcSiteMapBuilder.Web.Mvc
 
             try
             {
-                MvcSiteMapProviderViewEngineVirtualPathProvider pathProvider = new MvcSiteMapProviderViewEngineVirtualPathProvider();
+                var pathProvider = new MvcSiteMapProviderViewEngineVirtualPathProvider();
                 HostingEnvironment.RegisterVirtualPathProvider(pathProvider);
             }
             catch (SecurityException)
@@ -46,11 +46,11 @@ namespace MvcSiteMapBuilder.Web.Mvc
         /// </summary>
         public MvcSiteMapProviderViewEngine()
         {
-            base.ViewLocationFormats = new string[] { "~/__MVCSITEMAPPROVIDER/{0}.ascx" };
-            base.PartialViewLocationFormats = base.ViewLocationFormats;
-            base.AreaPartialViewLocationFormats = base.ViewLocationFormats;
-            base.MasterLocationFormats = base.ViewLocationFormats;
-            base.AreaMasterLocationFormats = base.ViewLocationFormats;
+            ViewLocationFormats = new string[] { "~/__MVCSITEMAPPROVIDER/{0}.ascx" };
+            PartialViewLocationFormats = ViewLocationFormats;
+            AreaPartialViewLocationFormats = ViewLocationFormats;
+            MasterLocationFormats = ViewLocationFormats;
+            AreaMasterLocationFormats = ViewLocationFormats;
         }
 
         /// <summary>

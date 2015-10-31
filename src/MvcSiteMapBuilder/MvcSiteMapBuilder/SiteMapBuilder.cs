@@ -38,7 +38,7 @@ namespace MvcSiteMapBuilder
             var siteMapNodes = siteMapNodeProvider.GetSiteMapNodes(builderSet.DataSource).ToList();
 
             // resolve other information regarding the sitemap nodes
-            siteMapNodes.ForEach(node => ResolveUrl(node));
+            siteMapNodes.ForEach(ResolveUrl);
 
             return new SiteMap
             {

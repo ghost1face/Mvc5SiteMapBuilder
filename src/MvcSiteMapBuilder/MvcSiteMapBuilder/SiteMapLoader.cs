@@ -82,7 +82,7 @@ namespace MvcSiteMapBuilder
 
         protected virtual void VisitSiteMap(SiteMap siteMap)
         {
-            List<SiteMapNode> siteMapNodes = new List<SiteMapNode>();
+            var siteMapNodes = new List<SiteMapNode>();
 
             // copy all root nodes and children, this makes all subsequent siteMap modifications only for this cloned instance
             // this solves an issue of an inmemory cacheable object

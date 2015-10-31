@@ -62,7 +62,7 @@ namespace MvcSiteMapBuilder.Matching
             {
                 return false;
             }
-            IUrlKey objB = obj as IUrlKey;
+            var objB = obj as IUrlKey;
             if (objB == null)
             {
                 return false;

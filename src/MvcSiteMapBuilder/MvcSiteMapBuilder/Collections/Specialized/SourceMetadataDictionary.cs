@@ -12,7 +12,7 @@ namespace MvcSiteMapBuilder.Collections.Specialized
     public class SourceMetadataDictionary
         : IDictionary<string, object>, ICollection<KeyValuePair<string, object>>, IEnumerable<KeyValuePair<string, object>>, IEnumerable
     {
-        private Dictionary<string, object> _dictionary;
+        private readonly Dictionary<string, object> _dictionary;
 
         public SourceMetadataDictionary()
         {

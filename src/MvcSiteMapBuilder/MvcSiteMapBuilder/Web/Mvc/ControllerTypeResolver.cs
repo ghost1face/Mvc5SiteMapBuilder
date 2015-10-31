@@ -87,7 +87,8 @@ namespace MvcSiteMapBuilder.Web.Mvc
             {
                 return namespacesForArea;
             }
-            else if (namespacesCommon.Count > 0)
+
+            if (namespacesCommon.Count > 0)
             {
                 return namespacesCommon;
             }
@@ -147,7 +148,7 @@ namespace MvcSiteMapBuilder.Web.Mvc
 
             var assembliesCache = assemblyCache.Value;
 
-            HashSet<Type> matchingTypes = new HashSet<Type>();
+            var matchingTypes = new HashSet<Type>();
             ILookup<string, Type> nsLookup;
             if (assembliesCache.TryGetValue(controller, out nsLookup))
             {
@@ -179,7 +180,8 @@ namespace MvcSiteMapBuilder.Web.Mvc
             {
                 return matchingTypes.First();
             }
-            else if (matchingTypes.Count > 1)
+
+            if (matchingTypes.Count > 1)
             {
                 string typeNames = Environment.NewLine + Environment.NewLine;
                 foreach (var matchingType in matchingTypes)
@@ -206,7 +208,8 @@ namespace MvcSiteMapBuilder.Web.Mvc
             {
                 return false;
             }
-            else if (requestedNamespace.Length == 0)
+
+            if (requestedNamespace.Length == 0)
             {
                 return true;
             }
@@ -216,31 +219,28 @@ namespace MvcSiteMapBuilder.Web.Mvc
                 // looking for exact namespace match
                 return string.Equals(requestedNamespace, targetNamespace, StringComparison.OrdinalIgnoreCase);
             }
-            else
+            
+            // looking for exact or sub-namespace match
+            requestedNamespace = requestedNamespace.Substring(0, requestedNamespace.Length - ".*".Length);
+            if (!targetNamespace.StartsWith(requestedNamespace, StringComparison.OrdinalIgnoreCase))
             {
-                // looking for exact or sub-namespace match
-                requestedNamespace = requestedNamespace.Substring(0, requestedNamespace.Length - ".*".Length);
-                if (!targetNamespace.StartsWith(requestedNamespace, StringComparison.OrdinalIgnoreCase))
-                {
-                    return false;
-                }
-
-                if (requestedNamespace.Length == targetNamespace.Length)
-                {
-                    // exact match
-                    return true;
-                }
-                else if (targetNamespace[requestedNamespace.Length] == '.')
-                {
-                    // good prefix match, e.g. requestedNamespace = "Foo.Bar" and targetNamespace = "Foo.Bar.Baz"
-                    return true;
-                }
-                else
-                {
-                    // bad prefix match, e.g. requestedNamespace = "Foo.Bar" and targetNamespace = "Foo.Bar2"
-                    return false;
-                }
+                return false;
             }
+
+            if (requestedNamespace.Length == targetNamespace.Length)
+            {
+                // exact match
+                return true;
+            }
+
+            if (targetNamespace[requestedNamespace.Length] == '.')
+            {
+                // good prefix match, e.g. requestedNamespace = "Foo.Bar" and targetNamespace = "Foo.Bar.Baz"
+                return true;
+            }
+            
+            // bad prefix match, e.g. requestedNamespace = "Foo.Bar" and targetNamespace = "Foo.Bar2"
+            return false;
         }
     }
 }

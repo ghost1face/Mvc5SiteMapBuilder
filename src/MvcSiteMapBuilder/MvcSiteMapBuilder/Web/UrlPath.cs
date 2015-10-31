@@ -269,8 +269,8 @@ namespace MvcSiteMapBuilder.Web
                 }
                 startIndex++;
             }
-            ArrayList list = new ArrayList();
-            StringBuilder builder = new StringBuilder();
+            var list = new ArrayList();
+            var builder = new StringBuilder();
             startIndex = 0;
             do
             {
@@ -691,8 +691,8 @@ namespace MvcSiteMapBuilder.Web
             if (serverVariables["HTTP_HOST"] != null)
             {
                 string scheme = serverVariables["HTTP_X_FORWARDED_PROTO"] ?? request.Url.Scheme;
-                Uri hostAndPort = new Uri(scheme + Uri.SchemeDelimiter + serverVariables["HTTP_HOST"]);
-                UriBuilder publicRequestUri = new UriBuilder(request.Url);
+                var hostAndPort = new Uri(scheme + Uri.SchemeDelimiter + serverVariables["HTTP_HOST"]);
+                var publicRequestUri = new UriBuilder(request.Url);
                 publicRequestUri.Scheme = scheme;
                 publicRequestUri.Host = hostAndPort.Host;
                 publicRequestUri.Port = hostAndPort.Port; // CC missing Uri.Port contract that's on UriBuilder.Port
