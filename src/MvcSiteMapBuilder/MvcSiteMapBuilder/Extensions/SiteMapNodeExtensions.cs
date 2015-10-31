@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -56,6 +55,19 @@ namespace MvcSiteMapBuilder.Extensions
         }
 
         /// <summary>
+        /// Resolve url on sitemap node
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public static string ResolveUrl(this SiteMapNode node)
+        {
+            var httpContext = HttpContext.Current;
+            var httpContextBase = new HttpContextWrapper(httpContext);
+
+            return node.ResolveUrl(httpContextBase);
+        }
+
+        /// <summary>
         /// Resolves url field through route parameters
         /// </summary>
         /// <param name="node"></param>
@@ -69,25 +81,51 @@ namespace MvcSiteMapBuilder.Extensions
         }
 
         /// <summary>
-        /// Copies an existing sitemap node and all properties
+        /// Determines if the node is visible
         /// </summary>
         /// <param name="node"></param>
+        /// <param name="sourceMetaData"></param>
         /// <returns></returns>
-        public static SiteMapNode Copy(this SiteMapNode node)
+        public static bool IsVisible(this SiteMapNode node, IDictionary<string, object> sourceMetaData)
         {
-            return new SiteMapNode
-            {
-                Action = node.Action,
-                Area  = node.Area,
-                Attributes = new Dictionary<string, string>(node.Attributes),
-                Children = node.Children.Select(n => n.Copy()).ToList(),
-                Clickable = node.Clickable,
-                Controller = node.Controller,
-                DynamicNodeProvider = node.DynamicNodeProvider,
-                Key = node.Key,
-                Title = node.Title,
-                Url = node.Url
-            };
+            return true;
         }
+
+        /// <summary>
+        /// Finds the parent node of the specified node
+        /// </summary>
+        /// <param name="siteMapNode"></param>
+        /// <param name="siteMap"></param>
+        /// <returns></returns>
+        public static SiteMapNode GetParentNode(this SiteMapNode siteMapNode, SiteMap siteMap)
+        {
+            foreach(var node in siteMap.Nodes)
+            {
+                return FindParentNode(node, siteMapNode);
+            }
+            return null;
+        }
+
+        #region Private Methods
+
+        private static SiteMapNode FindParentNode(SiteMapNode parentNode, SiteMapNode siteMapNodetoFind)
+        {
+            if (!parentNode.HasChildNodes)
+                return null;
+
+            foreach(var childNode in parentNode.ChildNodes)
+            {
+                if (childNode.Key.Equals(siteMapNodetoFind.Key))
+                    return parentNode;
+
+                var newParentNode = FindParentNode(childNode, siteMapNodetoFind);
+                if (newParentNode != null)
+                    return newParentNode;
+            }
+
+            return null;
+        }
+
+        #endregion
     }
 }

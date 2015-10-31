@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using MvcSiteMapBuilder.DataSource;
+using MvcSiteMapBuilder.Extensions;
 using MvcSiteMapBuilder.Providers;
 
 namespace MvcSiteMapBuilder
@@ -34,11 +35,33 @@ namespace MvcSiteMapBuilder
             if (siteMapNodeProvider == null)
                 throw new Exception("No supported provider found.");
 
+            var siteMapNodes = siteMapNodeProvider.GetSiteMapNodes(builderSet.DataSource).ToList();
+
+            // resolve other information regarding the sitemap nodes
+            siteMapNodes.ForEach(node => ResolveUrl(node));
+
             return new SiteMap
             {
                 CacheKey = cacheKey ?? builderSet.BuilderSetName,
-                Nodes = siteMapNodeProvider.GetSiteMapNodes(builderSet.DataSource).ToList()
+                Nodes = siteMapNodes
             };
         }
+
+        #region Private Methods
+
+        private void ResolveUrl(SiteMapNode rootNode)
+        {
+            rootNode.ResolveUrl();
+
+            if(rootNode.HasChildNodes)
+            {
+                foreach(var node in rootNode.ChildNodes)
+                {
+                    ResolveUrl(node);
+                }
+            }
+        }
+
+        #endregion
     }
 }

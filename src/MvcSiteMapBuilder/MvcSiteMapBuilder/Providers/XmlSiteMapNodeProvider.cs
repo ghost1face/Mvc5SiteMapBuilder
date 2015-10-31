@@ -71,6 +71,10 @@ namespace MvcSiteMapBuilder.Providers
             var httpMethod = node.GetAttributeValueOrFallback("httpMethod", HttpVerbs.Get.ToString()).ToUpperInvariant();
             var clickable = bool.Parse(node.GetAttributeValueOrFallback("clickable", "true"));
             var title = node.GetAttributeValue("title");
+            var description = node.GetAttributeValue("description");
+            var targetFrame = node.GetAttributeValue("targetFrame");
+            var imageUrl = node.GetAttributeValue("imageUrl");
+            var order = int.Parse(node.GetAttributeValueOrFallback("order", "0"));
             //var implicitResourceKey = node.GetAttributeValue("resourceKey");
 
             var siteMapNode = new SiteMapNode
@@ -82,8 +86,13 @@ namespace MvcSiteMapBuilder.Providers
                 Controller = controller,
                 Action = action,
                 DynamicNodeProvider = node.GetAttributeValue("dynamicNodeProvider"),
-                Attributes = new Dictionary<string, string>(),
-                Children = new List<SiteMapNode>()
+                Attributes = new Dictionary<string, object>(),
+                ChildNodes = new List<SiteMapNode>(),
+                Description = description,
+                TargetFrame = targetFrame,
+                ImageUrl = imageUrl,
+                Url = url,
+                Order = order
             };
 
             return siteMapNode;
@@ -113,7 +122,7 @@ namespace MvcSiteMapBuilder.Providers
                     var dynamicNodes = DynamicNodeBuilder.BuildDynamicNodes(childNode.DynamicNodeProvider, rootNode);
 
                     // add to root node
-                    rootNode.Children.AddRange(dynamicNodes);
+                    rootNode.ChildNodes.AddRange(dynamicNodes);
 
                     // add non-dynamic children for every dynamic node
                     foreach (var dynamicNode in dynamicNodes)
@@ -123,7 +132,7 @@ namespace MvcSiteMapBuilder.Providers
                 }
                 else
                 {
-                    rootNode.Children.Add(childNode);
+                    rootNode.ChildNodes.Add(childNode);
                 }
             }
         }

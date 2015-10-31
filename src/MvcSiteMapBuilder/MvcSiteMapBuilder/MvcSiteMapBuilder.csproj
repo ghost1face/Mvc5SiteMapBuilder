@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\..\ruleset\rules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -91,6 +94,7 @@
     <Compile Include="DI\ISiteMapServiceRegister.cs" />
     <Compile Include="DataSource\FileXmlSource.cs" />
     <Compile Include="Extensions\RouteDataExtensions.cs" />
+    <Compile Include="Extensions\SiteMapExtensions.cs" />
     <Compile Include="Extensions\SiteMapNodeExtensions.cs" />
     <Compile Include="Extensions\XElementExtensions.cs" />
     <Compile Include="Helpers\UrlHelpers.cs" />
@@ -101,6 +105,10 @@
     <Compile Include="ISiteMapBuilderSetStrategy.cs" />
     <Compile Include="ISiteMapLoader.cs" />
     <Compile Include="DI\SiteMapContainer.cs" />
+    <Compile Include="ISortable.cs" />
+    <Compile Include="Matching\IUrlKey.cs" />
+    <Compile Include="Matching\SiteMapNodeUrlKey.cs" />
+    <Compile Include="Matching\UrlKeyBase.cs" />
     <Compile Include="Providers\DynamicNodeBuilder.cs" />
     <Compile Include="Providers\IDynamicNodeProvider.cs" />
     <Compile Include="Providers\ISiteMapNodeProvider.cs" />
@@ -122,6 +130,11 @@
     <Compile Include="SiteMapNode.cs" />
     <Compile Include="SiteMaps.cs" />
     <Compile Include="Web\Html\HtmlHelperExtensions.cs" />
+    <Compile Include="Web\Html\MenuHelper.cs" />
+    <Compile Include="Web\Html\Models\MenuHelperModel.cs" />
+    <Compile Include="Web\Html\Models\SiteMapNodeModel.cs" />
+    <Compile Include="Web\Html\Models\SiteMapNodeModelList.cs" />
+    <Compile Include="Web\Html\Models\SiteMapPathHelperModel.cs" />
     <Compile Include="Web\Html\MvcSiteMapHtmlHelper.cs" />
     <Compile Include="Web\Html\SiteMapPathHelper.cs" />
     <Compile Include="Web\Mvc\ControllerDescriptorFactory.cs" />
@@ -129,6 +142,7 @@
     <Compile Include="Web\Mvc\MvcSiteMapProviderViewEngine.cs" />
     <Compile Include="Web\Mvc\MvcSiteMapProviderViewEngineVirtualFile.cs" />
     <Compile Include="Web\Mvc\MvcSiteMapProviderVirtualPathProvider.cs" />
+    <Compile Include="Web\UrlPath.cs" />
     <Compile Include="Web\ViewDataContainer.cs" />
   </ItemGroup>
   <ItemGroup>

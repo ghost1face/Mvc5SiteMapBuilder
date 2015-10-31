@@ -20,6 +20,21 @@ namespace MvcSiteMapBuilder
         public SiteMapLoader(ISiteMapBuilder siteMapBuilder, ISiteMapCacheKeyGenerator siteMapCacheKeyGenerator,
             ISiteMapCacheKeyToBuilderSetMapper siteMapCacheKeyToBuilderSetMapper, ISiteMapBuilderSetStrategy siteMapBuilderSetStrategy, ISiteMapCache siteMapCache)
         {
+            if (siteMapBuilder == null)
+                throw new ArgumentNullException(nameof(siteMapBuilder));
+
+            if (siteMapCacheKeyGenerator == null)
+                throw new ArgumentNullException(nameof(siteMapCacheKeyGenerator));
+
+            if (siteMapCacheKeyToBuilderSetMapper == null)
+                throw new ArgumentNullException(nameof(siteMapCacheKeyToBuilderSetMapper));
+
+            if (siteMapBuilderSetStrategy == null)
+                throw new ArgumentNullException(nameof(siteMapBuilderSetStrategy));
+
+            if (siteMapCache == null)
+                throw new ArgumentNullException(nameof(siteMapCache));
+
             this.siteMapBuilder = siteMapBuilder;
             this.siteMapCacheKeyGenerator = siteMapCacheKeyGenerator;
             this.siteMapCacheKeyToBuilderSetMapper = siteMapCacheKeyToBuilderSetMapper;
@@ -85,15 +100,15 @@ namespace MvcSiteMapBuilder
             if (!rootNode.IsAccessibleToUser())
                 return false;
 
-            if (rootNode.Children.Any())
+            if (rootNode.ChildNodes.Any())
             {
-                var itemCount = rootNode.Children.Count - 1;
+                var itemCount = rootNode.ChildNodes.Count - 1;
                 for (var i = itemCount; i >= 0; i--)
                 {
-                    var currentNode = rootNode.Children[i];
+                    var currentNode = rootNode.ChildNodes[i];
 
                     if (!IsNodeAccessible(currentNode))
-                        rootNode.Children.RemoveAt(i);
+                        rootNode.ChildNodes.RemoveAt(i);
                 }
             }
 
