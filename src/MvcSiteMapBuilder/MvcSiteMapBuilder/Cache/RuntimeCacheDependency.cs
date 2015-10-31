@@ -11,7 +11,7 @@ namespace MvcSiteMapBuilder.Cache
            )
         {
             if (string.IsNullOrEmpty(fileName))
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
 
             this.fileName = fileName;
         }

@@ -100,7 +100,7 @@ namespace MvcSiteMapBuilder.Web.Mvc
         {
             var controllerTypes = GetListOfControllerTypes();
             var groupedByName = controllerTypes.GroupBy(
-                            t => t.Name.Substring(0, t.Name.IndexOf("Controller")),
+                            t => t.Name.Substring(0, t.Name.IndexOf("Controller", StringComparison.Ordinal)),
                             StringComparer.OrdinalIgnoreCase);
             return groupedByName.ToDictionary(
                 g => g.Key,

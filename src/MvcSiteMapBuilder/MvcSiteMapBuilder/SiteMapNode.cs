@@ -54,10 +54,42 @@ namespace MvcSiteMapBuilder
 
         public override bool Equals(object obj)
         {
-            SiteMapNode node = obj as SiteMapNode;
+            var node = obj as SiteMapNode;
             if (node == null)
                 return false;
             return Equals(node);
+        }
+
+        public static bool operator ==(SiteMapNode node1, SiteMapNode node2)
+        {
+            // If both are null, or both are same instance, return true.
+            if (ReferenceEquals(node1, node2))
+            {
+                return true;
+            }
+
+            // If one is null, but not both, return false.
+            if (((object)node1 == null) || ((object)node2 == null))
+            {
+                return false;
+            }
+
+            return node1.Equals(node2);
+        }
+
+        public static bool operator !=(SiteMapNode node1, SiteMapNode node2)
+        {
+            return !(node1 == node2);
+        }
+
+        public override int GetHashCode()
+        {
+            return Key.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return Key;
         }
 
         /// <summary>

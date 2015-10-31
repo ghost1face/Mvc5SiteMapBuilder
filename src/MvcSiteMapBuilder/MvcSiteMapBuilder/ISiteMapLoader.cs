@@ -3,7 +3,6 @@
     public interface ISiteMapLoader
     {
         SiteMap GetSiteMap(string siteMapCacheKey = null);
-        void ReleaseSiteMap();
-        void ReleaseSiteMap(string siteMapCacheKey);
+        void ReleaseSiteMap(string siteMapCacheKey = null);
     }
 }

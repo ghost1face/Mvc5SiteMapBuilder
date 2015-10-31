@@ -6,9 +6,6 @@ using MvcSiteMapBuilder.Extensions;
 
 namespace MvcSiteMapBuilder
 {
-    // TODO: 
-    //      Cache & retrieve sitemap
-
     public class SiteMapLoader : ISiteMapLoader
     {
         private readonly ISiteMapBuilder siteMapBuilder;
@@ -65,14 +62,12 @@ namespace MvcSiteMapBuilder
             return restrictedSiteMap;
         }
 
-        public void ReleaseSiteMap()
+        public void ReleaseSiteMap(string siteMapCacheKey = null)
         {
-            throw new NotImplementedException();
-        }
+            if (string.IsNullOrEmpty(siteMapCacheKey))
+                siteMapCacheKey = siteMapCacheKeyGenerator.GenerateKey();
 
-        public void ReleaseSiteMap(string siteMapCacheKey)
-        {
-            throw new NotImplementedException();
+            siteMapCache.Remove(siteMapCacheKey);
         }
 
         #region Private Methods
@@ -89,12 +84,15 @@ namespace MvcSiteMapBuilder
         {
             var siteMapNodes = new List<SiteMapNode>();
 
-            // copy all root nodes and children, this makes all subsequent siteMap modifications only for this cloned instance
-            // this solves an issue of an inmemory cacheable object
-            foreach (var node in siteMap.Nodes.Select(n => n.Copy()))
+            if (siteMap.Nodes != null)
             {
-                if (IsNodeAccessible(node))
-                    siteMapNodes.Add(node);
+                // copy all root nodes and children, this makes all subsequent siteMap modifications only for this cloned instance
+                // this solves an issue of an inmemory cacheable object
+                foreach (var node in siteMap.Nodes.Select(n => n.Copy()))
+                {
+                    if (IsNodeAccessible(node))
+                        siteMapNodes.Add(node);
+                }
             }
 
             return new SiteMap

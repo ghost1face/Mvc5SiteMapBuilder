@@ -4,6 +4,6 @@ namespace MvcSiteMapBuilder.DataSource
 {
     interface ISiteMapXmlDataSource : ISiteMapDataSource
     {
-        XDocument GetSiteMapData();
+        new XDocument GetSiteMapData();
     }
 }

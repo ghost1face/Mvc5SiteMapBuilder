@@ -15,14 +15,22 @@ namespace MvcSiteMapBuilder
 
         private static SiteMapConfiguration configuration;
 
+        /// <summary>
+        /// Access an initialized instance of the SiteMapConfiguration
+        /// </summary>
         public static SiteMapConfiguration Instance
         {
             get { return configuration; }
         }
 
+        /// <summary>
+        /// Initialize an instance of sitemap configuration
+        /// </summary>
+        /// <returns></returns>
         public static SiteMapConfiguration Init()
         {
-            return Init(
+            return Init
+            (
                 TimeSpan.FromMinutes(5),
                 true,
                 true

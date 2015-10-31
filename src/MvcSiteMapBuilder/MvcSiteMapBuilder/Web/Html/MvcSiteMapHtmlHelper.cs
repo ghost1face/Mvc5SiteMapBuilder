@@ -40,9 +40,9 @@ namespace MvcSiteMapBuilder.Web.Html
         internal MvcSiteMapHtmlHelper(HtmlHelper htmlHelper, SiteMap siteMap, bool useViewEngine)
         {
             if (htmlHelper == null)
-                throw new ArgumentNullException("htmlHelper");
+                throw new ArgumentNullException(nameof(htmlHelper));
             if (siteMap == null)
-                throw new ArgumentNullException("siteMap");
+                throw new ArgumentNullException(nameof(siteMap));
 
             HtmlHelper = htmlHelper;
             SiteMap = siteMap;

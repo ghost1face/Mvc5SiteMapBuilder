@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace SimpleUseTestApplication.Controllers
 {
@@ -10,8 +6,6 @@ namespace SimpleUseTestApplication.Controllers
     {
         public ActionResult Index()
         {
-            MvcSiteMapBuilder.SiteMaps.GetSiteMap();
-
             return View();
         }
 

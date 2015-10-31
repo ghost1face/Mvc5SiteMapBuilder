@@ -19,7 +19,7 @@ namespace MvcSiteMapBuilder.Helpers
         {
             // Optimization: Return false early if there is no scheme delimiter in the string
             // prefixed by at least 1 character.
-            if (!(url.IndexOf(Uri.SchemeDelimiter) > 0))
+            if (!(url.IndexOf(Uri.SchemeDelimiter, StringComparison.Ordinal) > 0))
                 return false;
 
             // There must be at least 1 word character before the scheme delimiter.
