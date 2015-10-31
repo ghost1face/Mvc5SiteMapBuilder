@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MvcSiteMapBuilder.Extensions;
 
 namespace MvcSiteMapBuilder.Web.Html.Models
@@ -260,7 +258,7 @@ namespace MvcSiteMapBuilder.Web.Html.Models
                     maxDepth = 0;
                     return children_res;
                 }
-                else return children;
+                return children;
             }
         }
 
