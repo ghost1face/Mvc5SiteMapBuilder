@@ -1,8 +1,6 @@
 ﻿namespace MvcSiteMapBuilder.Cache
 {
-    public interface ISiteMapCache
+    public interface ISiteMapCache : ISiteMapCache<SiteMap>
     {
-        bool Add<T>(string siteMapCacheKey, T item, ICacheDetails cacheDetails);
-        T Get<T>(string siteMapCacheKey);
     }
 }

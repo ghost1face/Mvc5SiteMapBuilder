@@ -33,7 +33,7 @@ namespace MvcSiteMapBuilder.Tests
 
         private ISiteMapLoader NewSiteMapLoader()
         {
-            return new SiteMapLoader(siteMapBuilder, siteMapCacheKeyGenerator, siteMapCacheKeyToBuilderSetMapper, siteMapBuilderSetStrategy);
+            return new SiteMapLoader(siteMapBuilder, siteMapCacheKeyGenerator, siteMapCacheKeyToBuilderSetMapper, siteMapBuilderSetStrategy, siteMapCache);
         }
 
         #endregion

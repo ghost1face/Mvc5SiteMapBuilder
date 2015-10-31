@@ -74,9 +74,14 @@
     <Compile Include="Cache\CacheDetails.cs" />
     <Compile Include="Cache\ICacheDependency.cs" />
     <Compile Include="Cache\ICacheDetails.cs" />
+    <Compile Include="Cache\ICacheProvider.cs" />
+    <Compile Include="Cache\InMemoryCacheProvider.cs" />
+    <Compile Include="Cache\ISiteMapCache.cs" />
     <Compile Include="Cache\ISiteMapCacheKeyToBuilderSetMapper.cs" />
+    <Compile Include="Cache\NoCacheProvider.cs" />
     <Compile Include="Cache\NullCacheDependency.cs" />
     <Compile Include="Cache\RuntimeCacheDependency.cs" />
+    <Compile Include="Cache\SiteMapCache.cs" />
     <Compile Include="Cache\SiteMapCacheKeyToBuilderSetMapper.cs" />
     <Compile Include="Collections\Specialized\SourceMetadataDictionary.cs" />
     <Compile Include="DataSource\ISiteMapDataSource.cs" />
@@ -90,7 +95,7 @@
     <Compile Include="Extensions\XElementExtensions.cs" />
     <Compile Include="Helpers\UrlHelpers.cs" />
     <Compile Include="ISiteMapBuilder.cs" />
-    <Compile Include="Cache\ISiteMapCache.cs" />
+    <Compile Include="Cache\ISiteMapCache`1.cs" />
     <Compile Include="Cache\ISiteMapCacheKeyGenerator.cs" />
     <Compile Include="ISiteMapBuilderSet.cs" />
     <Compile Include="ISiteMapBuilderSetStrategy.cs" />

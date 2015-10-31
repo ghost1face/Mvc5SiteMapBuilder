@@ -22,17 +22,10 @@ namespace MvcSiteMapBuilder
                     .Register<ISiteMapCacheKeyToBuilderSetMapper, SiteMapCacheKeyToBuilderSetMapper>()
                     .Register<ISiteMapBuilderSetStrategy, SiteMapBuilderSetStrategy>()
                     .Register<ISiteMapLoader, SiteMapLoader>()
-                    
-                    
                     .Register<IXmlSiteMapNodeProvider, XmlSiteMapNodeProvider>()
                     .Register<IAclModule, AuthorizeAttributeAclModule>()
-                    
-                    ;
-
-            //if(configuration.EnableSiteMapFile)
-            //{
-            //    container.Register
-            //}
+                    .Register<ICacheProvider<SiteMap>, InMemoryCacheProvider<SiteMap>>()
+                    .Register<ISiteMapCache, SiteMapCache>();
         }
     }
 }

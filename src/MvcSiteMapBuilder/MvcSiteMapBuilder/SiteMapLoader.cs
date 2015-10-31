@@ -1,14 +1,12 @@
 ﻿using System;
-using MvcSiteMapBuilder.Cache;
-using MvcSiteMapBuilder.Security;
-using MvcSiteMapBuilder.Extensions;
-using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
+using MvcSiteMapBuilder.Cache;
+using MvcSiteMapBuilder.Extensions;
 
 namespace MvcSiteMapBuilder
 {
-    // TODO: Build SiteMap
+    // TODO: 
     //      Cache & retrieve sitemap
 
     public class SiteMapLoader : ISiteMapLoader
@@ -17,21 +15,27 @@ namespace MvcSiteMapBuilder
         private readonly ISiteMapCacheKeyGenerator siteMapCacheKeyGenerator;
         private readonly ISiteMapCacheKeyToBuilderSetMapper siteMapCacheKeyToBuilderSetMapper;
         private readonly ISiteMapBuilderSetStrategy siteMapBuilderSetStrategy;
+        private readonly ISiteMapCache siteMapCache;
 
         public SiteMapLoader(ISiteMapBuilder siteMapBuilder, ISiteMapCacheKeyGenerator siteMapCacheKeyGenerator,
-            ISiteMapCacheKeyToBuilderSetMapper siteMapCacheKeyToBuilderSetMapper, ISiteMapBuilderSetStrategy siteMapBuilderSetStrategy)
+            ISiteMapCacheKeyToBuilderSetMapper siteMapCacheKeyToBuilderSetMapper, ISiteMapBuilderSetStrategy siteMapBuilderSetStrategy, ISiteMapCache siteMapCache)
         {
             this.siteMapBuilder = siteMapBuilder;
             this.siteMapCacheKeyGenerator = siteMapCacheKeyGenerator;
             this.siteMapCacheKeyToBuilderSetMapper = siteMapCacheKeyToBuilderSetMapper;
             this.siteMapBuilderSetStrategy = siteMapBuilderSetStrategy;
+            this.siteMapCache = siteMapCache;
         }
 
         public SiteMap GetSiteMap(string siteMapCacheKey = null)
         {
             var builderSet = GetBuilderSet(siteMapCacheKey);
 
-            var siteMap = siteMapBuilder.BuildSiteMap(builderSet, siteMapCacheKey);
+            var siteMap = siteMapCache.GetOrAdd(
+                siteMapCacheKey,
+                () => siteMapBuilder.BuildSiteMap(builderSet, siteMapCacheKey),
+                builderSet.CacheDetails
+            );
 
             VisitSiteMap(siteMap);
 
@@ -64,7 +68,7 @@ namespace MvcSiteMapBuilder
 
             // copy all root nodes and children, this makes all subsequent siteMap modifications only for this cloned instance
             // this solves an issue of an inmemory cacheable object
-            foreach (var node in siteMap.Nodes.Select(n => n.Copy())) 
+            foreach (var node in siteMap.Nodes.Select(n => n.Copy()))
             {
                 if (IsNodeAccessible(node))
                     siteMapNodes.Add(node);
