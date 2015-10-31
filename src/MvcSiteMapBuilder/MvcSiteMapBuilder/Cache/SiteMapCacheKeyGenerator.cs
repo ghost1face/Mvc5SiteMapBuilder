@@ -8,8 +8,7 @@ namespace MvcSiteMapBuilder.Cache
         public virtual string GenerateKey()
         {
             var builder = new StringBuilder("sitemap://")
-                .Append("sitemap://")
-                .Append(this.GetHostName())
+                .Append(GetHostName())
                 .Append("/");
 
             return builder.ToString();

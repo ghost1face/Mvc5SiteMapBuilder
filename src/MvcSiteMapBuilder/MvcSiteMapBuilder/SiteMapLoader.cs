@@ -29,6 +29,9 @@ namespace MvcSiteMapBuilder
 
         public SiteMap GetSiteMap(string siteMapCacheKey = null)
         {
+            if (string.IsNullOrEmpty(siteMapCacheKey))
+                siteMapCacheKey = siteMapCacheKeyGenerator.GenerateKey();
+
             var builderSet = GetBuilderSet(siteMapCacheKey);
 
             var siteMap = siteMapCache.GetOrAdd(

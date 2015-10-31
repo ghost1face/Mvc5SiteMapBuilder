@@ -34,7 +34,7 @@ namespace MvcSiteMapBuilder
             if (configuration != null)
                 throw new InvalidOperationException("Configuration has already been initialized");
 
-            configuration = new SiteMapConfiguration
+            configuration = new SiteMapConfiguration(cacheDuration)
             {
                 Container = new SiteMapContainer(),
 
@@ -48,7 +48,7 @@ namespace MvcSiteMapBuilder
 
         #endregion
 
-        private SiteMapConfiguration()
+        private SiteMapConfiguration(TimeSpan cacheDuration)
         {
             var absoluteFileName = HostingEnvironment.MapPath("~/mvc.sitemap.xml");
             builderSets = new Collection<ISiteMapBuilderSet>
@@ -56,7 +56,7 @@ namespace MvcSiteMapBuilder
                 new SiteMapBuilderSet(
                     "default",
                     new FileXmlSource(absoluteFileName),
-                    new CacheDetails(CacheDuration, TimeSpan.MinValue, new RuntimeFileCacheDependency(absoluteFileName))
+                    new CacheDetails(cacheDuration, TimeSpan.MinValue, new RuntimeFileCacheDependency(absoluteFileName))
                 )
             };
         }
