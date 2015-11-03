@@ -1,0 +1,23 @@
+﻿@model MvcSiteMapBuilder.Web.Html.Models.SiteMapNodeModel
+@using System.Web.Mvc.Html
+@using MvcSiteMapBuilder.Web.Html.Models
+
+@if (Model.IsCurrentNode && Model.SourceMetadata["HtmlHelper"].ToString() != "MvcSiteMapBuilder.Web.Html.MenuHelper")
+{
+    <text>@Model.Title</text>
+}
+else if (Model.IsClickable)
+{
+    if (string.IsNullOrEmpty(Model.Description))
+    {
+        <a href="@Model.Url">@Model.Title</a>
+    }
+    else
+    {
+        <a href="@Model.Url" title="@Model.Description">@Model.Title</a>
+    }
+}
+else
+{
+    <text>@Model.Title</text>
+}

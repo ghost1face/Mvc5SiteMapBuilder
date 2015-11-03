@@ -92,6 +92,7 @@ namespace MvcSiteMapBuilder.Providers
                 TargetFrame = targetFrame,
                 ImageUrl = imageUrl,
                 Url = url,
+                UnresolvedUrl = url,
                 Order = order
             };
 

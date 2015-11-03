@@ -105,6 +105,7 @@
     <Compile Include="ISiteMapBuilderSetStrategy.cs" />
     <Compile Include="ISiteMapLoader.cs" />
     <Compile Include="DI\SiteMapContainer.cs" />
+    <Compile Include="ISiteMapNode.cs" />
     <Compile Include="ISortable.cs" />
     <Compile Include="Matching\IUrlKey.cs" />
     <Compile Include="Matching\SiteMapNodeUrlKey.cs" />

@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace MvcSiteMapBuilder
 {
+    [Serializable]
     public class SiteMapNode : ISortable, IEquatable<SiteMapNode>
     {
         public string Key { get; set; }
@@ -15,6 +16,7 @@ namespace MvcSiteMapBuilder
         public string ImageUrl { get; set; }
         public string Title { get; set; }
         public string Url { get; set; }
+        public string UnresolvedUrl { get; set; }
         public bool Clickable { get; set; }
         public string DynamicNodeProvider { get; set; }
         public int Order { get; set; }
@@ -114,7 +116,8 @@ namespace MvcSiteMapBuilder
                 Order = Order,
                 TargetFrame = TargetFrame,
                 Title = Title,
-                Url = Url
+                Url = Url,
+                UnresolvedUrl = UnresolvedUrl
             };
         }
     }

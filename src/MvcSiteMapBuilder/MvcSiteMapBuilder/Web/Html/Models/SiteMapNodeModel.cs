@@ -56,7 +56,7 @@ namespace MvcSiteMapBuilder.Web.Html.Models
             Url = node.Url;
             //CanonicalUrl = node.CanonicalUrl;
             //MetaRobotsContent = node.GetMetaRobotsContentString();
-            //IsCurrentNode = (node.Equals(node.SiteMap.CurrentNode));
+            IsCurrentNode = (node.Equals(siteMap.CurrentNode));
             //IsInCurrentPath = node.IsInCurrentPath();
             IsRootNode = (node.Equals(siteMap.RootNode));
             IsClickable = node.Clickable;

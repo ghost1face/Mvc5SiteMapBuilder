@@ -25,5 +25,28 @@ namespace MvcSiteMapBuilder
                 return rootNode.IsAccessibleToUser() ? rootNode : null;
             }
         }
+
+        public SiteMapNode CurrentNode
+        {
+            get
+            {
+                var currentNode = this.FindSiteMapNodeFromCurrentContext();
+                if (currentNode != null && currentNode.IsAccessibleToUser())
+                    return currentNode;
+                return RootNode;
+            }
+        }
+
+        public IDictionary<string, SiteMapNode> GetKeyToNodeDictionary()
+        {
+            // hack for testing, this assumes max hierarchy level is 4
+            var enumerableNodes =
+                Nodes.Select(i => i)
+                    .Concat(Nodes.SelectMany(i => i.ChildNodes))
+                    .Concat(Nodes.SelectMany(i => i.ChildNodes.SelectMany(j => j.ChildNodes)))
+                    .Concat(Nodes.SelectMany(i => i.ChildNodes.SelectMany(j => j.ChildNodes.SelectMany(k => k.ChildNodes))));
+
+            return enumerableNodes.ToDictionary(k => k.Key, v => v);
+        }
     }
 }

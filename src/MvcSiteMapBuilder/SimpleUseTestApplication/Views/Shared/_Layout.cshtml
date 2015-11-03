@@ -32,6 +32,12 @@
     <div class="stuff">
         @Html.MvcSiteMap().Menu()
     </div>
+    <div class="stuff2">
+        @if (Html.MvcSiteMap().SiteMap.CurrentNode != Html.MvcSiteMap().SiteMap.RootNode)
+        {
+            @Html.MvcSiteMap().SiteMapPath()
+        }
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />

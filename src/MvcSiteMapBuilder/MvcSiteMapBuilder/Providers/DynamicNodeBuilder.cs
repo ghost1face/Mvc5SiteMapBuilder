@@ -64,6 +64,7 @@ namespace MvcSiteMapBuilder.Providers
             nodeToProcess.Controller = controller;
             nodeToProcess.Action = action;
             nodeToProcess.Url = url;
+            nodeToProcess.UnresolvedUrl = url;
             nodeToProcess.Key = key;
             nodeToProcess.Clickable = clickable;
             nodeToProcess.Title = title;
