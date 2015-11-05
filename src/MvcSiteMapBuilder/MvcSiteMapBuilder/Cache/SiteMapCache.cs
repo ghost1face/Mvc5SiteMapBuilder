@@ -16,14 +16,19 @@ namespace MvcSiteMapBuilder.Cache
             SiteMap siteMap;
             var success = cacheProvider.TryGetValue(siteMapCacheKey, out siteMap);
 
-            if(!success)
+            if (!success)
             {
+                System.Diagnostics.Debug.WriteLine($"Cache Miss: {siteMapCacheKey}");
                 siteMap = createFunction();
                 cacheProvider.Add(siteMapCacheKey, siteMap, cacheDetails);
             }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine($"Cache Hit: {siteMapCacheKey}");
+            }
 
             return siteMap;
-        }        
+        }
 
         public void Remove(string siteMapCacheKey)
         {

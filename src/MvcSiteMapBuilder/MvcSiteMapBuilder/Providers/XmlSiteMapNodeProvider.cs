@@ -16,6 +16,7 @@ namespace MvcSiteMapBuilder.Providers
 
         protected readonly string rootName = "mvcSiteMap";
         protected readonly string nodeName = "mvcSiteMapNode";
+        protected readonly string xmlSiteMapNamespace = string.Empty;
         protected readonly NodeKeyGenerator nodeKeyGenerator = new NodeKeyGenerator();
 
         public virtual IEnumerable<SiteMapNode> GetSiteMapNodes(ISiteMapDataSource dataSource)
@@ -28,11 +29,26 @@ namespace MvcSiteMapBuilder.Providers
             if (xml == null)
                 throw new InvalidOperationException("File datasource is empty");
 
-            return LoadSiteMapFromXml(xml);
+            var siteMap = LoadSiteMapFromXml(xml);
+
+            return siteMap;
+        }
+
+        public virtual void FixXmlNamespaces(XDocument xml)
+        {
+            // If no namespace is present (or the wrong one is present), replace it
+            foreach (var node in xml.Descendants())
+            {
+                if (string.IsNullOrEmpty(node.Name.Namespace.NamespaceName) || node.Name.Namespace.NamespaceName != xmlSiteMapNamespace)
+                {
+                    node.Name = XName.Get(node.Name.LocalName, xmlSiteMapNamespace);
+                }
+            }
         }
 
         protected virtual IEnumerable<SiteMapNode> LoadSiteMapFromXml(XDocument xml)
         {
+            FixXmlNamespaces(xml);
             var rootElement = GetRootElement(xml);
             var root = GetRootNode(rootElement);
 
@@ -134,6 +150,8 @@ namespace MvcSiteMapBuilder.Providers
                 else
                 {
                     rootNode.ChildNodes.Add(childNode);
+
+                    ProcessXmlNodes(childNode, node);
                 }
             }
         }
