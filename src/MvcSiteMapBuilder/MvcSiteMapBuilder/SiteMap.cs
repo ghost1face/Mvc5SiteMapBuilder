@@ -37,7 +37,7 @@ namespace MvcSiteMapBuilder
             }
         }
 
-        public IDictionary<string, SiteMapNode> GetKeyToNodeDictionary()
+        public IEnumerable<SiteMapNode> GetKeyToNodeDictionary()
         {
             // hack for testing, this assumes max hierarchy level is 4
             var enumerableNodes =
@@ -46,7 +46,7 @@ namespace MvcSiteMapBuilder
                     .Concat(Nodes.SelectMany(i => i.ChildNodes.SelectMany(j => j.ChildNodes)))
                     .Concat(Nodes.SelectMany(i => i.ChildNodes.SelectMany(j => j.ChildNodes.SelectMany(k => k.ChildNodes))));
 
-            return enumerableNodes.ToDictionary(k => k.Key, v => v);
+            return enumerableNodes;
         }
     }
 }

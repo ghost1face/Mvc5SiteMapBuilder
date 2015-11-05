@@ -29,12 +29,10 @@ namespace MvcSiteMapBuilder.Providers
             if (xml == null)
                 throw new InvalidOperationException("File datasource is empty");
 
-            var siteMap = LoadSiteMapFromXml(xml);
-
-            return siteMap;
+            return LoadSiteMapFromXml(xml);
         }
 
-        public virtual void FixXmlNamespaces(XDocument xml)
+        protected virtual void FixXmlNamespaces(XDocument xml)
         {
             // If no namespace is present (or the wrong one is present), replace it
             foreach (var node in xml.Descendants())
@@ -83,7 +81,7 @@ namespace MvcSiteMapBuilder.Providers
             var action = node.GetAttributeValue("action");
             var url = node.GetAttributeValue("url");
             var explicitKey = node.GetAttributeValue("key");
-            var parentKey = parentNode == null ? "" : parentNode.Key;
+            var parentKey = parentNode == null ? string.Empty : parentNode.Key;
             var httpMethod = node.GetAttributeValueOrFallback("httpMethod", HttpVerbs.Get.ToString()).ToUpperInvariant();
             var clickable = bool.Parse(node.GetAttributeValueOrFallback("clickable", "true"));
             var title = node.GetAttributeValue("title");
@@ -91,6 +89,7 @@ namespace MvcSiteMapBuilder.Providers
             var targetFrame = node.GetAttributeValue("targetFrame");
             var imageUrl = node.GetAttributeValue("imageUrl");
             var order = int.Parse(node.GetAttributeValueOrFallback("order", "0"));
+            var dynamicNodeProvider = node.GetAttributeValue("dynamicNodeProvider");
             //var implicitResourceKey = node.GetAttributeValue("resourceKey");
 
             var siteMapNode = new SiteMapNode
@@ -101,7 +100,7 @@ namespace MvcSiteMapBuilder.Providers
                 Area = area,
                 Controller = controller,
                 Action = action,
-                DynamicNodeProvider = node.GetAttributeValue("dynamicNodeProvider"),
+                DynamicNodeProvider = dynamicNodeProvider,
                 Attributes = new Dictionary<string, object>(),
                 ChildNodes = new List<SiteMapNode>(),
                 Description = description,

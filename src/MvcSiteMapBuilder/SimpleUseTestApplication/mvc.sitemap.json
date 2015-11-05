@@ -1,0 +1,36 @@
+﻿{
+  "title": "Home",
+  "controller": "Home",
+  "action": "Index",
+  "area": "",
+  "childNodes": [
+    {
+      "title": "Contact",
+      "controller": "Home",
+      "action": "Contact",
+      "area": ""
+    },
+    {
+      "title": "Home",
+      "dynamicNodeProvider": "SimpleUseTestApplication.SiteMap.CustomNodeProvider, SimpleUseTestApplication"
+    },
+    {
+      "title": "LogOff",
+      "controller": "Account",
+      "action": "LogOff",
+      "area": ""
+    },
+    {
+      "title": "About",
+      "controller": "Home",
+      "action": "About",
+      "childNodes": [
+        {
+          "title": "Stuff",
+          "controller": "Home",
+          "action": "About"
+        }
+      ]
+    }
+  ]
+}

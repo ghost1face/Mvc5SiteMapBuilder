@@ -38,6 +38,10 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Caching" />
@@ -87,7 +91,9 @@
     <Compile Include="Cache\SiteMapCache.cs" />
     <Compile Include="Cache\SiteMapCacheKeyToBuilderSetMapper.cs" />
     <Compile Include="Collections\Specialized\SourceMetadataDictionary.cs" />
+    <Compile Include="DataSource\FileJSONSource.cs" />
     <Compile Include="DataSource\ISiteMapDataSource.cs" />
+    <Compile Include="DataSource\ISiteMapJSONDataSource.cs" />
     <Compile Include="DataSource\ISiteMapXmlDataSource.cs" />
     <Compile Include="DI\ISiteMapContainer.cs" />
     <Compile Include="DI\ISiteMapServiceProvider.cs" />
@@ -112,8 +118,10 @@
     <Compile Include="Matching\UrlKeyBase.cs" />
     <Compile Include="Providers\DynamicNodeBuilder.cs" />
     <Compile Include="Providers\IDynamicNodeProvider.cs" />
+    <Compile Include="Providers\IJSONSiteMapNodeProvider.cs" />
     <Compile Include="Providers\ISiteMapNodeProvider.cs" />
     <Compile Include="Providers\IXmlSiteMapNodeProvider.cs" />
+    <Compile Include="Providers\JSONSiteMapNodeProvider.cs" />
     <Compile Include="Providers\NodeKeyGenerator.cs" />
     <Compile Include="Providers\NodeProviderType.cs" />
     <Compile Include="Providers\XmlSiteMapNodeProvider.cs" />

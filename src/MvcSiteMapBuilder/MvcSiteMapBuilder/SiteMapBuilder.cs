@@ -9,10 +9,12 @@ namespace MvcSiteMapBuilder
     public class SiteMapBuilder : ISiteMapBuilder
     {
         private readonly IXmlSiteMapNodeProvider xmlSiteMapNodeProvider;
+        private readonly IJSONSiteMapNodeProvider jsonSiteMapNodeProvider;
 
-        public SiteMapBuilder(IXmlSiteMapNodeProvider xmlSiteMapNodeProvider)
+        public SiteMapBuilder(IXmlSiteMapNodeProvider xmlSiteMapNodeProvider, IJSONSiteMapNodeProvider jsonSiteMapNodeProvider)
         {
             this.xmlSiteMapNodeProvider = xmlSiteMapNodeProvider;
+            this.jsonSiteMapNodeProvider = jsonSiteMapNodeProvider;
         }
 
         public SiteMap BuildSiteMap(ISiteMapBuilderSet builderSet, string cacheKey)
@@ -30,7 +32,14 @@ namespace MvcSiteMapBuilder
                     throw new Exception($"Provider of type {NodeProviderType.Xml} is not registered.");
             }
 
-            // TODO: JSON support
+            var jsonDataSource = builderSet.DataSource as ISiteMapJSONDataSource;
+            if (jsonDataSource != null)
+            {
+                siteMapNodeProvider = jsonSiteMapNodeProvider;
+
+                if (siteMapNodeProvider == null)
+                    throw new Exception($"Provider of type {NodeProviderType.Json} is not registered.");
+            }
 
             if (siteMapNodeProvider == null)
                 throw new Exception("No supported provider found.");

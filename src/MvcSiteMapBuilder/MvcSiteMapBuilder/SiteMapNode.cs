@@ -22,6 +22,7 @@ namespace MvcSiteMapBuilder
         public int Order { get; set; }
         public Dictionary<string, object> Attributes { get; set; }
         public List<SiteMapNode> ChildNodes { get; set; }
+        public string HttpMethod { get; set; }
 
         //internal string Route { get; set; }
 
@@ -31,6 +32,7 @@ namespace MvcSiteMapBuilder
         {
             ChildNodes = new List<SiteMapNode>();
             Attributes = new Dictionary<string, object>();
+            Clickable = true;
         }
 
         #endregion
@@ -111,6 +113,7 @@ namespace MvcSiteMapBuilder
                 Controller = Controller,
                 Description = Description,
                 DynamicNodeProvider = DynamicNodeProvider,
+                HttpMethod = HttpMethod,
                 ImageUrl = ImageUrl,
                 Key = Key,
                 Order = Order,

@@ -23,6 +23,7 @@ namespace MvcSiteMapBuilder
                     .Register<ISiteMapBuilderSetStrategy, SiteMapBuilderSetStrategy>()
                     .Register<ISiteMapLoader, SiteMapLoader>()
                     .Register<IXmlSiteMapNodeProvider, XmlSiteMapNodeProvider>()
+                    .Register<IJSONSiteMapNodeProvider, JSONSiteMapNodeProvider>()
                     .Register<IAclModule, AuthorizeAttributeAclModule>()
                     .Register<ICacheProvider<SiteMap>, InMemoryCacheProvider<SiteMap>>()
                     .Register<ISiteMapCache, SiteMapCache>();

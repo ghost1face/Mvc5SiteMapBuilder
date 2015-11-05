@@ -45,7 +45,7 @@ namespace MvcSiteMapBuilder.Providers
             var explicitKey = nodeToProcess.Key;
             var parentKey = parentNode == null ? "" : parentNode.Key;
             var httpMethod = HttpVerbs.Get.ToString().ToUpperInvariant();
-            var clickable = nodeToProcess.Clickable;
+            var clickable = true;
             var title = nodeToProcess.Title;
 
             string key = nodeKeyGenerator.GenerateKey(

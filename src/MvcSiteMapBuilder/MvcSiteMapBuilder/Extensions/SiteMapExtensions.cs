@@ -146,7 +146,7 @@ namespace MvcSiteMapBuilder.Extensions
             var routes = RouteTable.Routes;
 
             // keyTable contains every node in the SiteMap
-            foreach (var node in siteMap.GetKeyToNodeDictionary().Values)
+            foreach (var node in siteMap.GetKeyToNodeDictionary())
             {
                 if (node.MatchesRoute(values))
                 {
