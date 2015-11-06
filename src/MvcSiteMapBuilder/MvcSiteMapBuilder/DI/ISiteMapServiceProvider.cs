@@ -1,4 +1,4 @@
-﻿namespace MvcSiteMapBuilder.DI
+﻿namespace Mvc5SiteMapBuilder.DI
 {
     public interface ISiteMapServiceProvider
     {

@@ -1,4 +1,4 @@
-﻿namespace MvcSiteMapBuilder
+﻿namespace Mvc5SiteMapBuilder
 {
     /// <summary>
     /// Contract to specify a sortable entity.

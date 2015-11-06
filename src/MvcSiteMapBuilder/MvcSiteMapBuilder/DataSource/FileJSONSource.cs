@@ -3,7 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace MvcSiteMapBuilder.DataSource
+namespace Mvc5SiteMapBuilder.DataSource
 {
     public class FileJSONSource : ISiteMapJSONDataSource
     {
@@ -29,7 +29,7 @@ namespace MvcSiteMapBuilder.DataSource
         object ISiteMapDataSource.GetSiteMapData()
         {
             // read JSON directly from a file
-            using (var file = File.OpenText(fileName))
+            var file = File.OpenText(fileName);
             using (var reader = new JsonTextReader(file))
             {
                 return (JObject)JToken.ReadFrom(reader);

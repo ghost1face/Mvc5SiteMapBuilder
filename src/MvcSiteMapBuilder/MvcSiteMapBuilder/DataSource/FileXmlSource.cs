@@ -2,7 +2,7 @@
 using System.IO;
 using System.Xml.Linq;
 
-namespace MvcSiteMapBuilder.DataSource
+namespace Mvc5SiteMapBuilder.DataSource
 {
     /// <summary>
     /// Provides an Xml stream instance based on an XML file source.

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Routing;
 
-namespace MvcSiteMapBuilder.Extensions
+namespace Mvc5SiteMapBuilder.Extensions
 {
     public static class RouteDataExtensions
     {

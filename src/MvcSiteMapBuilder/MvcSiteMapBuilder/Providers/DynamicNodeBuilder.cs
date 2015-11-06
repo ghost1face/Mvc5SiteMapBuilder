@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace MvcSiteMapBuilder.Providers
+namespace Mvc5SiteMapBuilder.Providers
 {
     public static class DynamicNodeBuilder
     {

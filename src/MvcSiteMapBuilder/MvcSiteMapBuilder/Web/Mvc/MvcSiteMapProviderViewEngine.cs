@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Hosting;
 using System.Web.Mvc;
 
-namespace MvcSiteMapBuilder.Web.Mvc
+namespace Mvc5SiteMapBuilder.Web.Mvc
 {
     /// <summary>
     /// MvcSiteMapProviderViewEngine class

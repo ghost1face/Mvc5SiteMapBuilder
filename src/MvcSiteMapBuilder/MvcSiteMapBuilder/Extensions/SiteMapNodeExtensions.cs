@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using MvcSiteMapBuilder.Helpers;
-using MvcSiteMapBuilder.Security;
+using Mvc5SiteMapBuilder.Helpers;
+using Mvc5SiteMapBuilder.Security;
 
-namespace MvcSiteMapBuilder.Extensions
+namespace Mvc5SiteMapBuilder.Extensions
 {
     public static class SiteMapNodeExtensions
     {

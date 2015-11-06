@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
-using MvcSiteMapBuilder.Collections.Specialized;
-using MvcSiteMapBuilder.Extensions;
-using MvcSiteMapBuilder.Web.Html.Models;
+using Mvc5SiteMapBuilder.Collections.Specialized;
+using Mvc5SiteMapBuilder.Extensions;
+using Mvc5SiteMapBuilder.Web.Html.Models;
 
 
-namespace MvcSiteMapBuilder.Web.Html
+namespace Mvc5SiteMapBuilder.Web.Html
 {
     /// <summary>
     /// MvcSiteMapHtmlHelper extension methods

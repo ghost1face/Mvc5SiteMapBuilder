@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MvcSiteMapBuilder
+namespace Mvc5SiteMapBuilder
 {
     [Serializable]
     public class SiteMapNode : ISortable, IEquatable<SiteMapNode>

@@ -1,4 +1,4 @@
-﻿namespace MvcSiteMapBuilder.DI
+﻿namespace Mvc5SiteMapBuilder.DI
 {
     /// <summary>
     /// Combines <typeparamref name="ISiteMapServiceProvider"/> and <typeparamref name="ISiteMapServiceRegister"/> as an implementation of an IoC container.

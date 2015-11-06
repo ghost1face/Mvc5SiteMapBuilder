@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using MvcSiteMapBuilder.Extensions;
+using Mvc5SiteMapBuilder.Extensions;
 
-namespace MvcSiteMapBuilder
+namespace Mvc5SiteMapBuilder
 {
     public class SiteMap
     {

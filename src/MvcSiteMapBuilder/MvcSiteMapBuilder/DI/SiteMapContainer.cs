@@ -2,7 +2,7 @@
 using System.Collections.Concurrent;
 using System.Linq;
 
-namespace MvcSiteMapBuilder.DI
+namespace Mvc5SiteMapBuilder.DI
 {
     public class SiteMapContainer : ISiteMapContainer
     {

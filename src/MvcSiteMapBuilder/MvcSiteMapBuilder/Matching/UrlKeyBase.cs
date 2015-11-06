@@ -1,7 +1,7 @@
 ﻿using System;
-using MvcSiteMapBuilder.Web;
+using Mvc5SiteMapBuilder.Web;
 
-namespace MvcSiteMapBuilder.Matching
+namespace Mvc5SiteMapBuilder.Matching
 {
     /// <summary>
     /// An abstract class containing the logic for comparing 2 IUrlKey instances.

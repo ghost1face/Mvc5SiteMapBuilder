@@ -1,9 +1,9 @@
 ﻿using System;
-using MvcSiteMapBuilder.Cache;
-using MvcSiteMapBuilder.Providers;
-using MvcSiteMapBuilder.Security;
+using Mvc5SiteMapBuilder.Cache;
+using Mvc5SiteMapBuilder.Providers;
+using Mvc5SiteMapBuilder.Security;
 
-namespace MvcSiteMapBuilder
+namespace Mvc5SiteMapBuilder
 {
     public static class SiteMapDefaultRegistrations
     {

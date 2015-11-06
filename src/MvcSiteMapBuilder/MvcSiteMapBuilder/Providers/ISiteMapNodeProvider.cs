@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using MvcSiteMapBuilder.DataSource;
+using Mvc5SiteMapBuilder.DataSource;
 
-namespace MvcSiteMapBuilder.Providers
+namespace Mvc5SiteMapBuilder.Providers
 {
     public interface ISiteMapNodeProvider
     {

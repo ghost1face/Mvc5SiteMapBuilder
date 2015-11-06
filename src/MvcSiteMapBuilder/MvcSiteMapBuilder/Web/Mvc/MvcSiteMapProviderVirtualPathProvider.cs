@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Web.Caching;
 using System.Web.Hosting;
 
-namespace MvcSiteMapBuilder.Web.Mvc
+namespace Mvc5SiteMapBuilder.Web.Mvc
 {
     /// <summary>
     /// MvcSiteMapProviderViewEnginePathProvider class

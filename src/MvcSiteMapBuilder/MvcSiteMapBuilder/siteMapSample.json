@@ -1,10 +1,13 @@
 ﻿{
   "action": "",
   "area": "",
-  "children": [
-
+  "childNodes": [
+    {
+      "action": "",
+      "area": ""
+    }
   ],
   "controller": "",
-  "provider": null,
+  "dynamicNodeProvider": null,
   "title": ""
 }

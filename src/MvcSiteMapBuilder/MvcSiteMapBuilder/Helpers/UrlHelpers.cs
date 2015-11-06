@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace MvcSiteMapBuilder.Helpers
+namespace Mvc5SiteMapBuilder.Helpers
 {
     public static class UrlHelpers
     {

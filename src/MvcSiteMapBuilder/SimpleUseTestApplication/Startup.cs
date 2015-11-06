@@ -10,7 +10,7 @@ namespace SimpleUseTestApplication
         {
             ConfigureAuth(app);
 
-            MvcSiteMapBuilder.SiteMapConfiguration.Init()
+            Mvc5SiteMapBuilder.SiteMapConfiguration.Init()
                 .Build();
                 
         }

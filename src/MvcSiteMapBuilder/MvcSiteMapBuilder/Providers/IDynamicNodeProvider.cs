@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MvcSiteMapBuilder.Providers
+namespace Mvc5SiteMapBuilder.Providers
 {
     public interface IDynamicNodeProvider
     {

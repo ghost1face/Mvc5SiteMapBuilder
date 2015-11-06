@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Caching;
 
-namespace MvcSiteMapBuilder.Cache
+namespace Mvc5SiteMapBuilder.Cache
 {
     public class RuntimeFileCacheDependency : ICacheDependency
     {

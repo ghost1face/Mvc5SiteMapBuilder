@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MvcSiteMapBuilder
+namespace Mvc5SiteMapBuilder
 {
     /// <summary>
     /// This class is the static entry point where the presentation layer can request a sitemap by calling Current or passing a siteMapCacheKey.

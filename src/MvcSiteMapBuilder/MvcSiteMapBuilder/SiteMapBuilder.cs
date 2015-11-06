@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using MvcSiteMapBuilder.DataSource;
-using MvcSiteMapBuilder.Extensions;
-using MvcSiteMapBuilder.Providers;
+using Mvc5SiteMapBuilder.DataSource;
+using Mvc5SiteMapBuilder.Extensions;
+using Mvc5SiteMapBuilder.Providers;
 
-namespace MvcSiteMapBuilder
+namespace Mvc5SiteMapBuilder
 {
     public class SiteMapBuilder : ISiteMapBuilder
     {

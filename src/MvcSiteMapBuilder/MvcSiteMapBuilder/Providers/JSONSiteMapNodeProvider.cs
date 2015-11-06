@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using MvcSiteMapBuilder.DataSource;
+using Mvc5SiteMapBuilder.DataSource;
 using Newtonsoft.Json.Linq;
 
-namespace MvcSiteMapBuilder.Providers
+namespace Mvc5SiteMapBuilder.Providers
 {
     public class JSONSiteMapNodeProvider : IJSONSiteMapNodeProvider
     {

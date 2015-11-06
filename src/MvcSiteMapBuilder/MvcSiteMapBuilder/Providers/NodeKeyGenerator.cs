@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MvcSiteMapBuilder.Providers
+namespace Mvc5SiteMapBuilder.Providers
 {
     /// <summary>
     /// Default NodeKeyGenerator class. This class provides the logic to generate a unique key based on several fields of a given node.

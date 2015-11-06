@@ -1,4 +1,4 @@
-﻿namespace MvcSiteMapBuilder.Providers
+﻿namespace Mvc5SiteMapBuilder.Providers
 {
     public enum NodeProviderType
     {

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Xml.Linq;
-using MvcSiteMapBuilder.DataSource;
-using MvcSiteMapBuilder.Extensions;
+using Mvc5SiteMapBuilder.DataSource;
+using Mvc5SiteMapBuilder.Extensions;
 
-namespace MvcSiteMapBuilder.Providers
+namespace Mvc5SiteMapBuilder.Providers
 {
     public class XmlSiteMapNodeProvider : IXmlSiteMapNodeProvider
     {

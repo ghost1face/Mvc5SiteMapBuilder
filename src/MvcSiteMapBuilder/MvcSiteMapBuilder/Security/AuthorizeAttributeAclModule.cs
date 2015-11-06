@@ -6,10 +6,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Async;
 using System.Web.Routing;
-using MvcSiteMapBuilder.Extensions;
-using MvcSiteMapBuilder.Web.Mvc;
+using Mvc5SiteMapBuilder.Extensions;
+using Mvc5SiteMapBuilder.Web.Mvc;
 
-namespace MvcSiteMapBuilder.Security
+namespace Mvc5SiteMapBuilder.Security
 {
     public class AuthorizeAttributeAclModule : IAclModule
     {

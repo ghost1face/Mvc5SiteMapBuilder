@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace MvcSiteMapBuilder.Web
+namespace Mvc5SiteMapBuilder.Web
 {
     /// <summary>
     /// Contains methods for working with URLs.

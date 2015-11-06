@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 
-namespace MvcSiteMapBuilder.Extensions
+namespace Mvc5SiteMapBuilder.Extensions
 {
     /// <summary>
     /// XElementExtensions class

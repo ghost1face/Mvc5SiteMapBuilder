@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace MvcSiteMapBuilder.Web
+namespace Mvc5SiteMapBuilder.Web
 {
     /// <summary>
     /// ViewDataContainer class.

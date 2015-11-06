@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MvcSiteMapBuilder.Cache;
+using Mvc5SiteMapBuilder.Cache;
 
-namespace MvcSiteMapBuilder
+namespace Mvc5SiteMapBuilder
 {
     public interface ISiteMapBuilderSetStrategy
     {

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web.Hosting;
-using MvcSiteMapBuilder.Cache;
-using MvcSiteMapBuilder.DataSource;
-using MvcSiteMapBuilder.DI;
+using Mvc5SiteMapBuilder.Cache;
+using Mvc5SiteMapBuilder.DataSource;
+using Mvc5SiteMapBuilder.DI;
 
-namespace MvcSiteMapBuilder
+namespace Mvc5SiteMapBuilder
 {
     public class SiteMapConfiguration
     {

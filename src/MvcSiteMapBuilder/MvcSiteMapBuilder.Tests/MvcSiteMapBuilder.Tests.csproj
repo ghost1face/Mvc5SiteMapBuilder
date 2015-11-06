@@ -86,9 +86,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MvcSiteMapBuilder\MvcSiteMapBuilder.csproj">
+    <ProjectReference Include="..\MvcSiteMapBuilder\Mvc5SiteMapBuilder.csproj">
       <Project>{b4a616a9-4da9-42c5-8467-be16fa00dfb2}</Project>
-      <Name>MvcSiteMapBuilder</Name>
+      <Name>Mvc5SiteMapBuilder</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

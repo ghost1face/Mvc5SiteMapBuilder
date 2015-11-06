@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MvcSiteMapBuilder.Cache;
-using MvcSiteMapBuilder.Extensions;
+using Mvc5SiteMapBuilder.Cache;
+using Mvc5SiteMapBuilder.Extensions;
 
-namespace MvcSiteMapBuilder
+namespace Mvc5SiteMapBuilder
 {
     public class SiteMapLoader : ISiteMapLoader
     {

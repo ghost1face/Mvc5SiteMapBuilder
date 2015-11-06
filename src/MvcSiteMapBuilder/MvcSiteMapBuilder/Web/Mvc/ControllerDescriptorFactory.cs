@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Mvc.Async;
 
-namespace MvcSiteMapBuilder.Web.Mvc
+namespace Mvc5SiteMapBuilder.Web.Mvc
 {
     public static class ControllerDescriptorFactory
     {

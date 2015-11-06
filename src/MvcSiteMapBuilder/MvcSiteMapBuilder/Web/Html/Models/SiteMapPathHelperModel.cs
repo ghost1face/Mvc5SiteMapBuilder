@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace MvcSiteMapBuilder.Web.Html.Models
+namespace Mvc5SiteMapBuilder.Web.Html.Models
 {
     /// <summary>
     /// SiteMapPathHelperModel

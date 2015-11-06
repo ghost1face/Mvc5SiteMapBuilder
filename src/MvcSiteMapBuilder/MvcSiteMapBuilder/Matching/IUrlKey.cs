@@ -1,4 +1,4 @@
-﻿namespace MvcSiteMapBuilder.Matching
+﻿namespace Mvc5SiteMapBuilder.Matching
 {
     /// <summary>
     /// Contract for a class that can be used as a key for matching relative or absolute URLs.

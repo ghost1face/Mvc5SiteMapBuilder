@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace MvcSiteMapBuilder.Web.Mvc
+namespace Mvc5SiteMapBuilder.Web.Mvc
 {
     public static class ControllerTypeResolver
     {

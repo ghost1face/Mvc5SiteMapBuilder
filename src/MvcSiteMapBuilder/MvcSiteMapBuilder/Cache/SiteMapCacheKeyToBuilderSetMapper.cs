@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MvcSiteMapBuilder.Cache
+namespace Mvc5SiteMapBuilder.Cache
 {
     public class SiteMapCacheKeyToBuilderSetMapper : ISiteMapCacheKeyToBuilderSetMapper
     {

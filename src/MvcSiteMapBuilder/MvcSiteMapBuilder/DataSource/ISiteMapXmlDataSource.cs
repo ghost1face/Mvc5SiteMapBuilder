@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 
-namespace MvcSiteMapBuilder.DataSource
+namespace Mvc5SiteMapBuilder.DataSource
 {
     interface ISiteMapXmlDataSource : ISiteMapDataSource
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MvcSiteMapBuilder.Extensions;
+using Mvc5SiteMapBuilder.Extensions;
 
-namespace MvcSiteMapBuilder.Web.Html.Models
+namespace Mvc5SiteMapBuilder.Web.Html.Models
 {
     /// <summary>
     /// SiteMapNodeModel

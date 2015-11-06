@@ -1,5 +1,5 @@
 ﻿
-namespace MvcSiteMapBuilder.Cache
+namespace Mvc5SiteMapBuilder.Cache
 {
     public class NullCacheDependency : ICacheDependency
     {

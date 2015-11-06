@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
-using MvcSiteMapBuilder.Web.Mvc;
+using Mvc5SiteMapBuilder.Web.Mvc;
 
-namespace MvcSiteMapBuilder.Web.Html
+namespace Mvc5SiteMapBuilder.Web.Html
 {
     /// <summary>
     /// MvcSiteMapHtmlHelper class

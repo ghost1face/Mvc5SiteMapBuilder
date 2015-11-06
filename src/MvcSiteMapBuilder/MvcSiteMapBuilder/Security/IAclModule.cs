@@ -1,4 +1,4 @@
-﻿namespace MvcSiteMapBuilder.Security
+﻿namespace Mvc5SiteMapBuilder.Security
 {
     public interface IAclModule
     {

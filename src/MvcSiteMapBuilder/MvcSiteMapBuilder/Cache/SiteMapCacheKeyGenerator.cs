@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using System.Web;
 
-namespace MvcSiteMapBuilder.Cache
+namespace Mvc5SiteMapBuilder.Cache
 {
     public class SiteMapCacheKeyGenerator : ISiteMapCacheKeyGenerator
     {

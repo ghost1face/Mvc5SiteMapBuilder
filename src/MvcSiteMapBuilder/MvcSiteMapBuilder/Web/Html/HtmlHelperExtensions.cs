@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace MvcSiteMapBuilder.Web.Html
+namespace Mvc5SiteMapBuilder.Web.Html
 {
     /// <summary>
     /// HtmlHelperExtensions class

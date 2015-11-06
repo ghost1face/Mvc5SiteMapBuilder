@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace MvcSiteMapBuilder.Collections.Specialized
+namespace Mvc5SiteMapBuilder.Collections.Specialized
 {
     /// <summary>
     /// Specialized dictionary for storing metadata about a specific instance of a MvcSiteMapProvider Html Helper.
     /// </summary>
-    public class SourceMetadataDictionary
+    public sealed class SourceMetadataDictionary
         : IDictionary<string, object>, ICollection<KeyValuePair<string, object>>, IEnumerable<KeyValuePair<string, object>>, IEnumerable
     {
         private readonly Dictionary<string, object> _dictionary;

@@ -1,4 +1,4 @@
-﻿namespace MvcSiteMapBuilder.Cache
+﻿namespace Mvc5SiteMapBuilder.Cache
 {
     public interface ICacheProvider<T>
     {

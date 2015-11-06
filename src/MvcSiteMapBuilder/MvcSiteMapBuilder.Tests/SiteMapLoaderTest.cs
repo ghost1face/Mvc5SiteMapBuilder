@@ -1,9 +1,9 @@
 ﻿using NUnit.Framework;
 using FakeItEasy;
-using MvcSiteMapBuilder.Cache;
+using Mvc5SiteMapBuilder.Cache;
 using System;
 
-namespace MvcSiteMapBuilder.Tests
+namespace Mvc5SiteMapBuilder.Tests
 {
     [TestFixture]
     public class SiteMapLoaderTest

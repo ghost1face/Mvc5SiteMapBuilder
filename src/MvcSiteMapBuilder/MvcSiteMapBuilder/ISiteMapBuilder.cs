@@ -1,4 +1,4 @@
-﻿namespace MvcSiteMapBuilder
+﻿namespace Mvc5SiteMapBuilder
 {
     public interface ISiteMapBuilder
     {

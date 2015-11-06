@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Runtime.Caching;
 using System.Threading;
 
-namespace MvcSiteMapBuilder.Cache
+namespace Mvc5SiteMapBuilder.Cache
 {
-    public class InMemoryCacheProvider<T> : ICacheProvider<T>
+    public class InMemoryCacheProvider<T> : ICacheProvider<T>, IDisposable
         where T : class
     {
         private ObjectCache cache = MemoryCache.Default;
         private readonly ReaderWriterLockSlim synclock = new ReaderWriterLockSlim(LockRecursionPolicy.NoRecursion);
+        private bool disposed;
 
         public void Add(string key, T item, ICacheDetails cacheDetails)
         {
@@ -148,6 +149,26 @@ namespace MvcSiteMapBuilder.Cache
             {
                 synclock.ExitReadLock();
             }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+
+            if (disposing)
+            {
+                if (synclock != null)
+                    synclock.Dispose();
+            }
+
+            disposed = true;
         }
 
         #endregion

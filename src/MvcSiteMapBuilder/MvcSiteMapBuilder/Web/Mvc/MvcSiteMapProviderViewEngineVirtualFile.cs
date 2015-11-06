@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Hosting;
 
-namespace MvcSiteMapBuilder.Web.Mvc
+namespace Mvc5SiteMapBuilder.Web.Mvc
 {
     /// <summary>
     /// MvcSiteMapProviderViewEngineVirtualFile class.

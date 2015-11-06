@@ -1,8 +1,8 @@
 ﻿using System;
-using MvcSiteMapBuilder.Cache;
-using MvcSiteMapBuilder.DataSource;
+using Mvc5SiteMapBuilder.Cache;
+using Mvc5SiteMapBuilder.DataSource;
 
-namespace MvcSiteMapBuilder
+namespace Mvc5SiteMapBuilder
 {
     public class SiteMapBuilderSet : ISiteMapBuilderSet
     {

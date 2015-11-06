@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace MvcSiteMapBuilder.DataSource
+namespace Mvc5SiteMapBuilder.DataSource
 {
     public interface ISiteMapJSONDataSource : ISiteMapDataSource
     {

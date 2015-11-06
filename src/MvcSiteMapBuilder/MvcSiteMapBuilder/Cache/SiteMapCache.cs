@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MvcSiteMapBuilder.Cache
+namespace Mvc5SiteMapBuilder.Cache
 {
     public class SiteMapCache : ISiteMapCache
     {

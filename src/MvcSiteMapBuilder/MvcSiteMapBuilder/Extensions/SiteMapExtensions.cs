@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Routing;
-using MvcSiteMapBuilder.Web;
+using Mvc5SiteMapBuilder.Web;
 
-namespace MvcSiteMapBuilder.Extensions
+namespace Mvc5SiteMapBuilder.Extensions
 {
     public static class SiteMapExtensions
     {

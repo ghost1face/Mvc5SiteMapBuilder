@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Xml;
 
-namespace MvcSiteMapBuilder.DataSource
+namespace Mvc5SiteMapBuilder.DataSource
 {
     public interface ISiteMapDataSource
     {
