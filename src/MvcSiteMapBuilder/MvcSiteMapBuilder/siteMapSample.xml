@@ -1,13 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <mvcSiteMap>
 
-  <!-- Template should ignore the root node, MvcSiteMapProvider does not handle a dynamicNodeProvider at the root -->
-  <mvcSiteMapNode title="Reports" controller="Package" action="Builder" area="Reports">
-    <!-- BASIC SETUP -->
-    <mvcSiteMapNode title="Report Builder" controller="Package" action="Builder" area="Reports" />
-    <mvcSiteMapNode title="Report Archive" controller="Archive" action="Index" area="Reports" />
-    <mvcSiteMapNode title="Home" dynamicNodeProvider="ASSEMBLY FULLY QUALIFIED TYPE, ASSEMBLY NAME" />
-
+  <mvcSiteMapNode title="Home" controller="Home" action="Index">
+    <mvcSiteMapNode title="About" controller="Home" action="About"/>
   </mvcSiteMapNode>
 
 </mvcSiteMap>

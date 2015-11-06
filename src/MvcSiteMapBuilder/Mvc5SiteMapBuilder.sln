@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{58DE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleUseTestApplication", "SimpleUseTestApplication\SimpleUseTestApplication.csproj", "{C71A461B-6FBF-46A1-899B-F5A93D1AD01D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcSiteMapBuilder.Tests", "MvcSiteMapBuilder.Tests\MvcSiteMapBuilder.Tests.csproj", "{61702188-DB6F-44B1-859D-7E4B39ACF5FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc5SiteMapBuilder.Tests", "MvcSiteMapBuilder.Tests\Mvc5SiteMapBuilder.Tests.csproj", "{61702188-DB6F-44B1-859D-7E4B39ACF5FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
