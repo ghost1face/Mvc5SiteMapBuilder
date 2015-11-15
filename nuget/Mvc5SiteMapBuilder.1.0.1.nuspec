@@ -21,7 +21,7 @@
         <file src="content\Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" target="content\Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
         <file src="content\Views\Shared\DisplayTemplates\SiteMapNodeModel.cshtml" target="content\Views\Shared\DisplayTemplates\SiteMapNodeModel.cshtml" />
         <file src="content\Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" target="content\Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
-        <file src="content\Views\web.config.transform" target="content\Views\web.config.install.xdt" />
+        <file src="content\Views\web.config.install.xdt" target="content\Views\web.config.install.xdt" />
         <file src="content\Views\web.config.uninstall.xdt" target="content\Views\web.config.uninstall.xdt" />
         <file src="content\mvc.sitemap.xml" target="content\mvc.sitemap.xml" />
         <file src="lib\net45\Mvc5SiteMapBuilder.dll" target="lib\net45\Mvc5SiteMapBuilder.dll" />
