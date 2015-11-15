@@ -42,7 +42,7 @@ namespace Mvc5SiteMapBuilder
             if (configuration != null)
                 throw new InvalidOperationException("Configuration has already been initialized");
 
-            configuration = new SiteMapConfiguration(cacheDuration)
+            configuration = new SiteMapConfiguration()
             {
                 Container = new SiteMapContainer(),
 
@@ -59,21 +59,12 @@ namespace Mvc5SiteMapBuilder
         #region Constructor
 
         /// <summary>
-        /// Creates an instance of SiteMapConfiguration with the specified default cache duration
+        /// Creates an instance of SiteMapConfiguration
         /// </summary>
         /// <param name="cacheDuration"></param>
-        private SiteMapConfiguration(TimeSpan cacheDuration)
+        private SiteMapConfiguration()
         {
-            var absoluteFileName = HostingEnvironment.MapPath("~/mvc.sitemap.xml");
-
-            builderSets = new Collection<ISiteMapBuilderSet>
-            {
-                new SiteMapBuilderSet(
-                    "default",
-                    new FileXmlSource(absoluteFileName),
-                    new CacheDetails(cacheDuration, TimeSpan.MinValue, new RuntimeFileCacheDependency(absoluteFileName))
-                )
-            };
+            builderSets = new Collection<ISiteMapBuilderSet>();
         }
 
         #endregion
@@ -115,6 +106,19 @@ namespace Mvc5SiteMapBuilder
         {
             if (containerIsBuilt)
                 return;
+
+            if (!builderSets.Any())
+            {
+                var absoluteFileName = HostingEnvironment.MapPath("~/mvc.sitemap.xml");
+
+                builderSets.Add(
+                    new SiteMapBuilderSet(
+                        "default",
+                        new FileXmlSource(absoluteFileName),
+                        new CacheDetails(CacheDuration, TimeSpan.MinValue, new RuntimeFileCacheDependency(absoluteFileName))
+                    )
+                );
+            }
 
             // register builder sets
             Container.Register(provider => builderSets.ToArray());
