@@ -9,3 +9,4 @@ This code has various changes created to alter the original behavior and re-work
     Install-Package Mvc5SiteMapBuilder
 
 # License
+  [MS-PL License](./LICENSE.MD)
