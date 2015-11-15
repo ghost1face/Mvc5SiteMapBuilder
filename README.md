@@ -6,6 +6,6 @@ This code has been ported and adapted from project (https://github.com/maartenba
 This code has various changes created to alter the original behavior and re-work the caching side of things to work in a web-farm environment and support the use of a distributed cache server (Redis, AppFabric, Memcached, etc).  It can be used for menus (permission/claims based), site maps, site map paths.  This project supports xml, json and code driven sitemaps.
 
 # NuGet
-```Install-Package Mvc5SiteMapBuilder
+    Install-Package Mvc5SiteMapBuilder
 
 # License
