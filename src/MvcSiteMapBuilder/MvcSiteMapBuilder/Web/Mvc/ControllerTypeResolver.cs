@@ -12,53 +12,61 @@ namespace Mvc5SiteMapBuilder.Web.Mvc
     public static class ControllerTypeResolver
     {
         private readonly static IDictionary<string, Type> cache = new ConcurrentDictionary<string, Type>();
+        private readonly static object syncLock = new object();
 
         public static Type ResolveControllerType(string areaName, string controllerName)
         {
+            // controller type to find and return
+            Type controllerType;
+
             // is the type cached?
             var cacheKey = areaName + "_" + controllerName;
-            if (cache.ContainsKey(cacheKey))
-            {
+            if (cache.TryGetValue(cacheKey, out controllerType))
                 return cache[cacheKey];
-            }
 
-            // find controller details
-            IEnumerable<string> areaNamespaces = FindNamespacesForArea(areaName, RouteTable.Routes);
-
-            var area = areaName;
-            var controller = controllerName;
-            var controllerBuilder = ControllerBuilder.Current;
-
-
-            // Find controller type
-            Type controllerType;
-            HashSet<string> namespaces = null;
-            if (areaNamespaces != null)
+            lock (syncLock)
             {
-                areaNamespaces = (from ns in areaNamespaces
-                                  where ns != "Elmah.Mvc"
-                                  //where !this.areaNamespacesToIgnore.Contains(ns)
-                                  select ns).ToList();
-                if (areaNamespaces.Any())
+                if (cache.TryGetValue(cacheKey, out controllerType))
+                    return controllerType;
+
+                // find controller details
+                IEnumerable<string> areaNamespaces = FindNamespacesForArea(areaName, RouteTable.Routes);
+
+                var area = areaName;
+                var controller = controllerName;
+                var controllerBuilder = ControllerBuilder.Current;
+
+                // Find controller type
+                HashSet<string> namespaces = null;
+                if (areaNamespaces != null)
                 {
-                    namespaces = new HashSet<string>(areaNamespaces, StringComparer.OrdinalIgnoreCase);
-                    if (string.IsNullOrEmpty(areaName))
+                    areaNamespaces = (from ns in areaNamespaces
+                                      where ns != "Elmah.Mvc"
+                                      select ns).ToList();
+                    if (areaNamespaces.Any())
                     {
-                        namespaces = new HashSet<string>(namespaces.Union(controllerBuilder.DefaultNamespaces, StringComparer.OrdinalIgnoreCase), StringComparer.OrdinalIgnoreCase);
+                        namespaces = new HashSet<string>(areaNamespaces, StringComparer.OrdinalIgnoreCase);
+                        if (string.IsNullOrEmpty(areaName))
+                        {
+                            namespaces = new HashSet<string>(
+                                namespaces.Union(controllerBuilder.DefaultNamespaces, StringComparer.OrdinalIgnoreCase), 
+                                StringComparer.OrdinalIgnoreCase
+                            );
+                        }
                     }
                 }
-            }
-            else if (controllerBuilder.DefaultNamespaces.Count > 0)
-            {
-                namespaces = controllerBuilder.DefaultNamespaces;
-            }
-            controllerType = GetControllerTypeWithinNamespaces(area, controller, namespaces);
+                else if (controllerBuilder.DefaultNamespaces.Count > 0)
+                {
+                    namespaces = controllerBuilder.DefaultNamespaces;
+                }
+                controllerType = GetControllerTypeWithinNamespaces(area, controller, namespaces);
 
-            // Cache the result
-            cache.Add(cacheKey, controllerType);
+                // Cache the result
+                cache.Add(cacheKey, controllerType);
 
-            // Return
-            return controllerType;
+                // Return
+                return controllerType;
+            }
         }
 
         /// <summary>
@@ -219,7 +227,7 @@ namespace Mvc5SiteMapBuilder.Web.Mvc
                 // looking for exact namespace match
                 return string.Equals(requestedNamespace, targetNamespace, StringComparison.OrdinalIgnoreCase);
             }
-            
+
             // looking for exact or sub-namespace match
             requestedNamespace = requestedNamespace.Substring(0, requestedNamespace.Length - ".*".Length);
             if (!targetNamespace.StartsWith(requestedNamespace, StringComparison.OrdinalIgnoreCase))
@@ -238,7 +246,7 @@ namespace Mvc5SiteMapBuilder.Web.Mvc
                 // good prefix match, e.g. requestedNamespace = "Foo.Bar" and targetNamespace = "Foo.Bar.Baz"
                 return true;
             }
-            
+
             // bad prefix match, e.g. requestedNamespace = "Foo.Bar" and targetNamespace = "Foo.Bar2"
             return false;
         }
